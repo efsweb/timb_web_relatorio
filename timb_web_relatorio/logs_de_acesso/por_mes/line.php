@@ -13,7 +13,9 @@
 
 			$vl_meses = array();
 			$meses = array("Jan","Fev","Mar","Abr","Mai","Jun","Jul", "Ago", "Set", "Out","Nov", "Dez");
-			$exibe_meses = array(); //ORDENA OS MESES DE ACORDO COM O MES ATUAL
+			$ordena_meses_atual = array(); //ARMAZENADA ORDENADAMENTE APARTIR DO MES ATUAL
+			$ordena_meses = array(); //ORDENA OS MESES DE ACORDO COM O MES ATUAL - para concatenar todos.
+			
 
 			require_once '../config/connection.php';
 
@@ -38,19 +40,15 @@
 			//PERCORRE A DATA ARMAZENANDO APENAS OS MESES QUE SE PASSARAM DO ANO ATUAL (EXEMPLO: JAN - ABR = 1,2,3,4)
 			for ($i = $mes_atual+1 ; $i >= 2; $i--) { 
 				array_push($ano_atual['1'],$i);		//ADICIONA OS VALORES A UM ARRAY ($ano_atual)
-				$exibe_meses[] = $meses[$i-2]; //REALIZA A ORDENACAO DE ACORDO COM O MES ATUAL
+				array_push($ordena_meses_atual,$meses[$i-2]); //REALIZA A ORDENACAO DE ACORDO COM O MES ATUAL
 
 			}
+
 			
-			for($i = 0 ; $i <= $mes_atual; $i++){
-				
+			for($i = 0 ; $i <= $mes_atual-1; $i++){
 				//CRIO UM ARRAY COM OS VALORES NOS INDICES CORRETOS DE CADA MES E ANO REGISTRADO EM CADA DISPOSITIVO NO BANCO 
-				if (isset($vl_meses['1'][$ano_atual['1'][$i]])){
-					$array_ano_atual['1'][$ano_atual['1'][$i]] =  $vl_meses['1'][$ano_atual['1'][$i]];
-					$result_array_ios = array_push($array_ios, $vl_meses['1'][$ano_atual['1'][$i]]) ;					
+					$array_ano_atual['1'][$ano_atual['1'][$i]] =  $vl_meses['1'][$ano_atual['1'][$i]];							
 				}
-
-			}
 			
 			if($mes_atual != 12){ //VERIFICA SE REALMENTE É NECESSARIO TER CONTAGEM DOS MESES DO ANO ANTERIOR
 				
@@ -58,23 +56,23 @@
 
 				for ($j ; $j <= 13; $j++) {
 					array_push($ano_ant['0'],$j);	//ADICIONA OS VALORES A UM ARRAY ($ano_ant)
-					$exibe_meses[] = $meses[$j-2]; //REALIZA A ORDENACAO DE ACORDO COM O MES ATUAL
+					array_unshift($ordena_meses, $meses[$j-2]); //REALIZA A ORDENACAO DE ACORDO COM O MES ATUAL
 				}
-				var_dump($exibe_meses);
+
+				//var_dump($exibe_meses);
 				$mes_atual++;
 				
 				for($j = 0 ; $j <= $mes_atual; $j++){
 					
 					//CRIO UM ARRAY COM OS VALORES NOS INDICES CORRETOS DE CADA MES E ANO REGISTRADO EM CADA DISPOSITIVO NO BANCO 
 					$array_ano_ant['0'][$ano_ant['0'][$j]] =  $vl_meses['0'][$ano_ant['0'][$j]]; 
-					$result_array_ios = array_push($array_ios, $vl_meses['0'][$ano_ant['0'][$j]] );
 
 				}
 			}
-
-			$array_grafico = array_merge($array_ano_ant,$array_ano_atual);
-
-			var_dump($array_ios);
+			$exibe_meses = array_merge($ordena_meses_atual,$ordena_meses);
+			
+			$array_grafico = array_merge($array_ano_ant, $array_ano_atual);
+			//var_dump($array_ios);
 
 			?>
 
@@ -147,7 +145,7 @@
 
 		function lineChartAndroid() {
 		    var data = {
-		    	//STRING DOS exibe_meses
+		    	//STRING DOS meses
 				labels : 
 		        [
 		        	<?php echo '"'.$exibe_meses[0].'"'; ?>,
