@@ -73,13 +73,14 @@
 	<body>
 
 
+
 		<section class="graficos">
 
 			<div class="ios">
 				<img class="icon-ios" src="images/ios-ico.png" />
 
 				<section class="ios-grafic">
-						<canvas id="ios-canvas"></canvas>
+						<canvas class="ios-grafic" id="ios-canvas"></canvas>
 				</section>
 
 				<h1>Total do mês: <span>12000</span><br/>
@@ -90,7 +91,7 @@
 				<img class="icon-android" src="images/android-ico.png" />
 
 				<section class="android-grafic">
-						<canvas id="android-canvas"></canvas>
+						<canvas class="android-grafic" id="android-canvas"></canvas>
 				</section>
 
 				<h1>Total do mês: <span>12000</span><br/>
@@ -102,7 +103,7 @@
 				<img class="icon-web" src="images/web-ico.png" />
 
 				<section class="web-grafic">
-						<canvas id="web-canvas"></canvas>
+						<canvas class="web-grafic" id="web-canvas"></canvas>
 				</section>
 				<h1>Total do mês: <span>12000</span><br/>
 				No mês: <span>12000</span></h1>

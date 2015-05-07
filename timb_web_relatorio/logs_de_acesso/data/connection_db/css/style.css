@@ -4,9 +4,9 @@ body {
   background-color: #3D3E3F; }
 
 .graficos {
-  max-width: 718px;
+  width: 718px;
   height: 450px;
-  min-width: 425px; }
+  margin: 0 auto; }
 
 h1 {
   font-family: Arial;
@@ -32,7 +32,7 @@ h1 {
 
 .ios-grafic, .android-grafic, .web-grafic {
   float: left;
-  width: 70%;
+  width: 500px;
   height: 100px; }
 
 .icon-ios, .icon-android, .icon-web {
