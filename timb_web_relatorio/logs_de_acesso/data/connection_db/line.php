@@ -4,7 +4,6 @@
 		<title>Line Chart</title>
 		<link rel="stylesheet" type="text/css" href="css/style.css"> 
 		<script src="js/Chart.min.js"></script>
-		<script src="js/line-mode.js"></script>
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<meta charset='utf-8'>
 
@@ -16,56 +15,92 @@
 
 			$connect_mysql = new connect_mysql();
 
+
 			?>
 
-			// --------- ANDROID CONFIGURE ------ //
+		if(!!(window.addEventListener)) window.addEventListener('DOMContentLoaded', main);
+		else window.attachEvent('onload', main);
 
-			function lineChartAndroid() {
-			    var data = {
-			        labels : ["Jan","Fev","Mar","Abr","Mai","Jun","Jul", "Ago", "Set", "Out", "Dez"],
-			        datasets : [
-			            {
-			            fillColor : "rgba(66,134,168,0.2)",
-						strokeColor : "rgba(66,134,168,1)",
-						pointColor : "rgba(66,134,168,1)",
-						pointStrokeColor : "#fff",
-						pointHighlightFill : "#fff",
-						pointHighlightStroke : "rgba(151,187,205,1)",
-			            data : [65,59,90,81,56,55,40,50,60,30,48],
-			            label : 'Android'
-			        }]
-			    };
+		// --------- CHAMADA DOS GRÁFICOS ------ //
 
-			    var ctx = document.getElementById("android-canvas").getContext("2d");
-			    new Chart(ctx).Line(data, {
-			        responsive: true
-			    });
-			}
+		function main() {
+		    lineChartIOS();
+		    lineChartAndroid();
+		    lineChartWeb();
+		}
+
+		// --------- IOS CONFIGURE ------ //
+		function lineChartIOS() {
+		    var data = {
+		        labels : ["Jan","Fev","Mar","Abr","Mai","Jun","Jul", "Ago", "Set", "Out", "Dez"],
+		        datasets : [
+		            {
+		            fillColor : "rgba(66,134,168,0.2)",
+					strokeColor : "rgba(66,134,168,1)",
+					pointColor : "rgba(66,134,168,1)",
+					pointStrokeColor : "#fff",
+					pointHighlightFill : "#fff",
+					pointHighlightStroke : "rgba(151,187,205,1)",
+		            data : [65,59,90,81,56,55,40,50,60,30,48],
+		            label : 'IOS'
+		        }]
+		    };
+
+		    var ctx = document.getElementById("ios-canvas").getContext("2d");
+		    new Chart(ctx).Line(data, {
+		        responsive: true
+		    });
+		}
 
 
-			// --------- WEB CONFIGURE ------ //
+		// --------- ANDROID CONFIGURE ------ //
 
-			function lineChartWeb() {
-			    var data = {
-			        labels : ["Jan","Fev","Mar","Abr","Mai","Jun","Jul", "Ago", "Set", "Out", "Dez"],
-			        datasets : [
-			            {
-			            fillColor : "rgba(66,134,168,0.2)",
-						strokeColor : "rgba(66,134,168,1)",
-						pointColor : "rgba(66,134,168,1)",
-						pointStrokeColor : "#fff",
-						pointHighlightFill : "#fff",
-						pointHighlightStroke : "rgba(151,187,205,1)",
-			            data : [65,59,90,81,56,55,40,50,60,30,48],
-			            label : 'Android'
-			        }]
-			    };
+		function lineChartAndroid() {
+		    var data = {
+		        labels : ["Jan","Fev","Mar","Abr","Mai","Jun","Jul", "Ago", "Set", "Out", "Dez"],
+		        datasets : [
+		            {
+		            fillColor : "rgba(66,134,168,0.2)",
+					strokeColor : "rgba(66,134,168,1)",
+					pointColor : "rgba(66,134,168,1)",
+					pointStrokeColor : "#fff",
+					pointHighlightFill : "#fff",
+					pointHighlightStroke : "rgba(151,187,205,1)",
+		            data : [65,59,90,81,56,55,40,50,60,30,48],
+		            label : 'Android'
+		        }]
+		    };
 
-			    var ctx = document.getElementById("web-canvas").getContext("2d");
-			    new Chart(ctx).Line(data, {
-			        responsive:true
-			    });
-			}
+		    var ctx = document.getElementById("android-canvas").getContext("2d");
+		    new Chart(ctx).Line(data, {
+		        responsive: true
+		    });
+		}
+
+
+		// --------- WEB CONFIGURE ------ //
+
+		function lineChartWeb() {
+		    var data = {
+		        labels : ["Jan","Fev","Mar","Abr","Mai","Jun","Jul", "Ago", "Set", "Out", "Dez"],
+		        datasets : [
+		            {
+		            fillColor : "rgba(66,134,168,0.2)",
+					strokeColor : "rgba(66,134,168,1)",
+					pointColor : "rgba(66,134,168,1)",
+					pointStrokeColor : "#fff",
+					pointHighlightFill : "#fff",
+					pointHighlightStroke : "rgba(151,187,205,1)",
+		            data : [65,59,90,81,56,55,40,50,60,30,48],
+		            label : 'Android'
+		        }]
+		    };
+
+		    var ctx = document.getElementById("web-canvas").getContext("2d");
+		    new Chart(ctx).Line(data, {
+		        responsive: true
+		    });
+		}
 		</script>
 
 
