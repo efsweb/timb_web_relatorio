@@ -1,0 +1,201 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+#my-treemap {
+    float: left;
+    width: 750px;
+    height: 400px;
+    font-family: Arial;
+    font-size: 11px;
+	margin: 15px;
+}
+
+#data-box {
+    float: left;
+    width: 200px;
+    height: 200px;
+    border: 1px solid #999;
+    padding: 15px;
+    font-family: Arial;
+    color: #333;
+    font-size: 14px;
+	display: none;
+}
+
+.minor {
+    background-color: red;
+    color: white;
+}
+.major {
+    background-color: #00AEF0;
+    color: white;
+}
+.treemap{
+	height: 450px;
+
+}
+#eh{
+    width: 780px;
+    height: 225px;
+}
+.eh{
+    width: 780px;
+    height: 225px;
+}
+.total{
+    width: 780px;
+    height: 225px;
+}
+#total{
+    width: 780px;
+    height: 225px;
+}
+.tab-pane2{
+    margin-top: 65px;
+}
+.mt65{
+    margin-top: 65px;
+}
+#table-eh, #table-total{
+    width: 380px;
+    height: 215px;
+    padding: 0;
+    margin: 5px;
+    table-layout: fixed;
+}
+.display{
+    margin: 0 auto;
+    width: 100%;
+    clear: both;
+    border-collapse: collapse;
+    table-layout: fixed;
+    word-wrap: break-word;
+    
+}
+#table-content, #table-content-total{
+    width: 380px;
+    height: 215px;
+    padding: 0;
+    margin: 5px;
+    table-layout: fixed;
+}
+.panel-body{
+    padding: 0px;
+}
+.dataTables_length{
+    display: none;
+}
+.dataTables_filter{
+    padding-top: 5px;
+     padding-bottom: 5px;
+}
+.form-control{
+    color: #000000;
+}
+.holder{
+    background: #FFFFFF;
+    margin: 25px 20px;
+	width: 780px;
+	height: 300px;
+}
+.holderSumary{
+    width: 252px;
+    height: 22px;
+}
+
+.graph-bar{
+    height: 350px;
+}
+.graph-line{
+    height: 300px;
+}
+tspan{
+    font-size: 7px;
+}
+.morris-hover{
+    position:absolute;
+    z-index:1000;
+}
+.morris-hover.morris-default-style{
+    border-radius:10px;
+    padding:6px;
+    color:#666;
+    background:rgba(255, 255, 255, 0.8);
+    border:solid 2px rgba(230, 230, 230, 0.8);
+    font-family:sans-serif;
+    font-size:12px;
+    text-align:center;
+}
+.morris-hover.morris-default-style .morris-hover-row-label{
+    font-weight:bold;margin:0.25em 0;
+}
+.morris-hover.morris-default-style .morris-hover-point{
+    white-space:nowrap;margin:0.1em 0;
+}
+.tooltip-inner {
+    min-width: 150px; //the minimum width
+}
+
+.natureza{
+    height: 80px;
+    width: 80px;
+    margin: -80px 8;
+}
+.aplicativo{
+    background-color: #7a92a3;
+}
+.conteudo{
+    background-color: #4da74d;
+}
+.sugestao{
+    background-color: #0b62a4;
+}
+
+
+
+.hide{
+    display: none;
+}
+.hideBTNagurade{
+    opacity: 0;
+}
+.size12 {
+    font-size: 11px;
+}
+.dashed{
+    
+    margin-bottom: 5px;
+
+     border-bottom: 1px solid #ddd;
+     -webkit-border-bottom: 1px solid #ddd;
+     -moz-border-bottom: 1px solid #ddd;
+}
+.border{
+    border: 1px solid #ddd;
+}
+.bLeft{
+    border: 1px solid #ddd;
+    -webkit-border-top-left-radius: 10px;
+    -webkit-border-bottom-left-radius: 10px;
+    -moz-border-radius-topleft: 10px;
+    -moz-border-radius-bottomleft: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.bRigth{
+    border: 1px solid #ddd;
+    -webkit-border-top-right-radius: 10px;
+    -webkit-border-bottom-right-radius: 10px;
+    -moz-border-radius-topright: 10px;
+    -moz-border-radius-bottomright: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px
+}
+.bDown{
+    border-bottom: 1px solid #000;
+}
+.black{
+    color: #000;
+}

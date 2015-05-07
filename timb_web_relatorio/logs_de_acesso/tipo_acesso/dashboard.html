@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=10; IE=9; IE=8;" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+        <!-- disable scale on iOS -->
+        <meta name="viewport" content="initial-scale = 1.0, user-scalable = no">
+        <meta name="format-detection" content="telephone=no">
+        <style type="text/css">
+          .display
+          {
+            /* Block areas from being selected */
+            -ms-user-select: none;
+           }
+          div { 
+            -ms-touch-action: none; /* Shunt all pointer events to JavaScript code. */
+          }
+        </style>
+        <title>Dashboard</title>
+        
+        <!-- include necessary runtime css and js file -->
+        <link rel="stylesheet" href="./runtime/css/global.css" type="text/css">
+        <link rel="stylesheet" href="./runtime/css/default.css" type="text/css">
+        <link rel="stylesheet" href="./runtime/css/xcelsiusIconFont.css" type="text/css">
+                
+        <!-- include third parties-->
+        <script type="text/javascript" src="./runtime/libs/jquery-1.8.3/jquery-1.8.3.min.js"></script>
+		<script type="text/javascript" src="./runtime/libs/log4javascript-1.4.2/log4javascript.js"></script>
+        <script type="text/javascript" src="./runtime/libs/lazyload-2.0.1/lazyload-min.js"></script>
+        
+        <!-- Add iscroll for non-sencha component generation -->
+        <script type="text/javascript" src="./runtime/libs/cubiq-iscroll-712640b/src/iscroll.js"></script>
+        
+        <!-- numeric formatter library path -->
+        <script type="text/javascript" src="./runtime/libs/SAPNumericFormatter/main/sap.common.globalization.js"></script>
+        
+        <!-- HDCanvas library path -->
+        <script type="text/javascript" src="./runtime/libs/HDCanvas/sap.common.html.HDCanvas.js"></script>
+        
+        <!-- chart library path -->
+        <script type="text/javascript" src="./runtime/libs/riv/sap.riv.base.js"></script>       
+        <script type="text/javascript" src="./runtime/libs/riv/sap.riv.modules.js"></script>
+        <script type="text/javascript" src="./runtime/libs/riv/sap.riv.themes.js"></script>
+        
+        <!-- mekko chart library, which is base on D3 --> 
+  
+		
+        <!-- related js files -->
+		<script type="text/javascript" src="runtime_AADC211F_A4E9_4CA2_8D7D_D3D232383F88/file_1.js"></script>
+		<script type="text/javascript" src="runtime_AADC211F_A4E9_4CA2_8D7D_D3D232383F88/file_2.js"></script>
+
+		
+		<!-- viewer injection js -->
+		<script type="text/javascript" src="./runtime/viewer/Injection.js"></script>
+		
+		<!-- Mobile Add-on js/css files -->
+ 
+
+		<!-- $PLACE_HOLDER_FOR_INJECTION_JS_FILES$ -->
+		
+    </head>
+    <body>
+        <div id="dashboard_holder_C04D68EF_7CCA_49A7_A2B2_8A014C89437C"></div>
+    
+        <script type="text/javascript">
+            $(window).load(function() {
+                // each generated dashboard has different UID, even from the same XLF
+                var dashboard = new xcelsius.runtime.Dashboard("AADC211F_A4E9_4CA2_8D7D_D3D232383F88"/*Dashboard UID, each generated dashboard has different UID, even from the same XLF*/,
+                    // all generated js files
+                    ["gen_AADC211F_A4E9_4CA2_8D7D_D3D232383F88/settings_1.js", 
+                    "gen_AADC211F_A4E9_4CA2_8D7D_D3D232383F88/styles_1.js", 
+                    "gen_AADC211F_A4E9_4CA2_8D7D_D3D232383F88/cells_1.js", 
+                    "gen_AADC211F_A4E9_4CA2_8D7D_D3D232383F88/components_1.js"],
+                    ["gen_AADC211F_A4E9_4CA2_8D7D_D3D232383F88/connections_1.js"]);
+                
+                dashboard.init("dashboard_holder_C04D68EF_7CCA_49A7_A2B2_8A014C89437C"/*DIV ID*/, 
+                    // complete callback
+                    function() {/*Complete Callback Function*/
+                        //console.log("dashboard init complete");
+                    },
+                    // failed callback
+                    function(err) {/*Failed Callback Function*/
+                        alert("dashboard init failed");
+                    }
+                );
+            });
+        </script>
+    </body>                            
+</html>

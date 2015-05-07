@@ -1,0 +1,182 @@
+/* all */
+::-webkit-input-placeholder { color:#ddd; }
+::-moz-placeholder { color:#ddd; } /* firefox 19+ */
+:-ms-input-placeholder { color:#ddd; } /* ie */
+input:-moz-placeholder { color:#ddd; }
+
+.iframe-content{
+	width: 785px;
+	height: 800px;
+	background: #333;
+	position:fixed;
+}
+
+.title-contato{
+	width: 100%;
+	border-top: 2px dotted #ddd;
+	padding: 5px ;
+}
+
+.title-contato p{
+	font-family:Arial, Helvetica, sans-serif;
+	text-transform: uppercase;
+	color: #ddd;
+	font-size: 13px;
+}
+
+.iframe-content form{
+	width: 700px;
+	height: 350px;
+	margin: 35px auto;
+	top: 25px;
+}
+
+.interesse_result {
+	position:absolute;
+	margin: 0 60px;
+}
+
+.interesse_result p{
+	color: #428bca;
+	font-family: Arial, Helvetica, sans-serif;
+	text-transform:uppercase;
+	font-size: 13px;
+	padding: 3px;
+}
+
+.radios{
+	float:right;
+	position:relative;
+	height: 30px;
+	width: 400px;
+	text-align:right;
+}
+
+.radios label {  
+    display: inline-block;  
+    cursor: pointer;  
+    position: relative;  
+    padding-left: 20px;  
+    margin-right: 15px; 
+    font-size: 13px;  
+	color: #ddd;
+}  
+
+.radios input[type=radio] {  
+    display: none;  
+} 
+
+.radios label:before {  
+    content: "";  
+    display: inline-block;  
+  
+    width: 16px;  
+    height: 16px;  
+  
+    margin-right: 10px; 
+	margin-top: -2px; 
+    position: absolute;  
+    left: 0; 
+    background: #5c5c5c; 
+    /*box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);  */
+}  
+
+.radios label:before {  
+    border-radius: 8px;  
+}  
+
+.radios input[type=radio]:checked + label:before {  
+	background: #428bca;
+	border: 2px solid #5c5c5c;
+    width: 13px;  
+    height: 13px;  
+}  
+
+
+
+.iframe-content form .formulario{
+	width: 580px;
+	height: 350px;
+	margin: 0 auto;
+}
+
+.iframe-content form .formulario input{
+	width: 287px;
+	border: 0;
+	height: 23px;
+	background: #5c5c5c;
+	margin-bottom: 4px;
+	padding: 5px;
+	color: #ddd;
+	outline: none;
+}
+
+.iframe-content form .formulario textarea{
+	width: 578px;
+	height: 196px;
+	background: #5c5c5c;
+	border: 0;
+	padding: 5px;
+	color: #ddd;
+	font-family: Arial, Helvetica, sans-serif;
+	margin-bottom: 4px;
+	outline: none;
+}
+
+.iframe-content form .formulario input:focus{
+	border: 1px dotted #ddd;
+}
+
+.iframe-content form .formulario textarea:focus{
+	border: 1px dotted #ddd;
+}
+
+
+.iframe-content form .formulario label{
+	width: 445px;
+	height: 23px;
+	background: #5c5c5c;
+	float:left;
+}
+
+.iframe-content form .formulario label button{
+	float:left;
+	border: 0;
+	width: 100px;
+}
+
+.iframe-content form .formulario label input{
+	float:right;
+	width: 340px;
+	outline: none;
+}
+
+.iframe-content form .formulario label input:focus{
+	border: 0;
+}
+
+.iframe-content form .formulario button{
+	width: 130px;
+	height: 23px;
+	float:right;
+	background: #5c5c5c;
+	border: 0;
+	text-transform: uppercase;
+	color: #ddd;
+	font-family:Arial, Helvetica, sans-serif;
+	margin-right: 2px;
+	cursor: pointer;
+	outline: none;
+}
+
+.iframe-content form .formulario button:hover{
+	color: #428bca;
+}
+
+video{
+	width: 690px;
+	height: 380px;
+	padding: 5px;
+}
+
+

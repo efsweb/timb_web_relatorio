@@ -1,0 +1,44 @@
+/* ---------->>> BASE <<<-----------*/
+body {
+  margin: 0;
+  background-color: #3D3E3F; }
+
+.graficos {
+  max-width: 718px;
+  height: 450px;
+  min-width: 425px; }
+
+h1 {
+  font-family: Arial;
+  color: #ddd;
+  font-size: 11px;
+  text-transform: uppercase;
+  font-weight: normal;
+  text-align: center;
+  padding: 20px 0;
+  width: 100px;
+  float: right; }
+  h1 span {
+    color: #00AEF0;
+    font-weight: bolder;
+    font-size: 12px; }
+
+/* ---------->>> IOS <<<-----------*/
+.ios, .android, .web {
+  width: 100%;
+  position: relative;
+  float: left;
+  margin: 28px 0; }
+
+.ios-grafic, .android-grafic, .web-grafic {
+  float: left;
+  width: 70%;
+  height: 100px; }
+
+.icon-ios, .icon-android, .icon-web {
+  float: left;
+  width: 100px;
+  height: 100px; }
+
+/* ---------->>> ANDROID <<<-----------*/
+/* ---------->>> WEB <<<-----------*/

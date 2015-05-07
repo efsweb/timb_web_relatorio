@@ -1,0 +1,271 @@
+<html dir="ltr" lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <title>Mercedes Bens - Truck-Info MB</title>
+
+  <link rel="stylesheet" href="css/reset.css" media="screen" />
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="css/style-relatorios.css" media="screen" />
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <link rel="stylesheet" href="css/style-iframe.css" media="screen" />
+  <link rel="stylesheet" href="css/tabs.css" media="screen" />
+
+  <script type="text/javascript" src="js/jquery-1.11.1.js" ></script>
+  <script type="text/javascript" src="js/modernizr.custom.04022.js"></script>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700,300,300italic' rel='stylesheet' type='text/css'>
+<!--[if lt IE 9]>
+  <style>
+    .content{
+      height: auto;
+      margin: 0;
+    }
+    .content div {
+      position: relative;
+    }
+  </style>
+  <![endif]-->
+
+
+
+
+  <link rel="stylesheet" href="css/jquery.dataTables.css">
+  <link rel="stylesheet" href="css/fontawesome.css">
+  <link rel="stylesheet" href="css/animation.css">
+  <link rel="stylesheet" href="css/content.css">
+
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/raphael-min.js"></script>
+  <script src="js/morris-0.4.3.min.js"></script>
+  <script src='js/jquery-treemap.js'></script>
+
+  <script type="text/javascript" src="js/jquery.flot.min.js"></script>       
+  <script type="text/javascript" src="js/jquery.flot.axislabels.js"></script>
+  <script type="text/javascript" src="js/jshashtable-2.1.js"></script>   
+  <script type="text/javascript" src="js/jquery.numberformatter-1.2.3.min.js"></script>
+  <script type="text/javascript" src="js/jquery.dataTables.js"></script>
+  <script type="text/javascript" src="js/content.js"></script>
+
+
+
+  <script>
+  $(document).ready(function() {
+    $('#myTab a').click(function (e) {
+      e.preventDefault()
+      $(this).tab('show')
+    })
+  });
+  </script>
+
+</head>
+
+<body>
+	
+  <section class="suporte-content">
+
+    <div class="suporte-tabs">
+     <p></p>
+     <!-- Nav tabs -->
+     <ul class="nav nav-tabs">
+      <li class="active"><a href="#chart" data-toggle="tab"><img src="images/btn-chart.png"/> <span>log de acesso</span></a></li>
+      <li><a href="#contato" data-toggle="tab"><img src="images/btn-contato.png"/> <span>contato</span></a></li>
+      <li><a href="#print" data-toggle="tab"><img src="images/btn-print.png"/> <span>imprimir</span></a></li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <div class="tab-pane fade in active" id="chart">
+        <section class="tabs">
+          <input id="tab-1" type="radio" name="radio-set" class="tabs-input tab-selector-1" />
+          <label for="tab-1" class="tabs-label tab-label-1">tipo de acesso</label>
+
+          <input id="tab-2" type="radio" name="radio-set" class="tabs-input tab-selector-2" />
+          <label for="tab-2" class="tabs-label tab-label-2">data</label>
+
+          <input id="tab-3" type="radio" name="radio-set" class="tabs-input tab-selector-3" />
+          <label for="tab-3" class="tabs-label tab-label-3">por dispositivo</label>
+
+          <input id="tab-4" type="radio" name="radio-set" class="tabs-input tab-selector-4" />
+          <label for="tab-4" class="tabs-label tab-label-4">cargo</label>
+
+          <input id="tab-5" type="radio" name="radio-set" class="tabs-input tab-selector-5" />
+          <label for="tab-5" class="tabs-label tab-label-5">razão social</label>
+
+          <div class="clear-shadow"></div>
+
+          <div class="content">
+            
+
+            <section class="content-2 holder">
+              <div id="evoT" class=" graph-line"></div><!--Evolução Histórica - total (data)-->
+            </section>
+
+            <section class="content-3 holder">
+              <div id="evoTD" class=" graph-line"></div><!--Evolução Histórica - por dispositivo-->
+            </section>
+
+
+            <section class="content-4 holder">
+              <div class="graph-bar" id="graph-bar"></div><!--registro por cargo-->
+            </section>
+
+            <section class="content-5 holder">
+              <div id='my-treemap' class="treemap holder"></div><!--registro por razao social-->
+              <div id='data-box' class=""></div>
+            </section>
+
+            <section class="content-1 holder">
+              <div id="device" class="" style="height: 350px;"></div><!--Tipo de acesso-->
+            </section>
+
+          </div>
+        </section>
+      </div>
+
+
+      <div class="mt65 tab-pane fade" id="print">
+        <section class="tabs">
+           <input id="tab-4" type="radio" name="radio-set" class="tabs-input tab-selector-4 hideBTNagurade"/>
+          <label for="tab-4" class="tabs-label tab-label-4 hideBTNagurade" ></label>
+          <div class="clear-shadow"></div>
+
+          <div class="content">
+
+            <section class="holder ">
+              <h1>AGUARDE</h1>
+            </section>
+          </div>
+        </section>
+     </div>
+      <div class="tab-pane2 fade" id="contato">
+        <section class="tabs">
+          <input id="tab-6" type="radio" name="radio-set2" class="tabs-input tab-selector-6" checked="checked" />
+          <label for="tab-6" class="tabs-label tab-label-6">EH</label>
+
+          <input id="tab-7" type="radio" name="radio-set2" class="tabs-input tab-selector-7" checked="" />
+          <label for="tab-7" class="tabs-label tab-label-7">TOTAL</label>
+
+          <div class="clear-shadow"></div>
+
+          <div class="content">
+
+           
+
+
+            <section class="content-7 holder ">
+              <div id="total" class="total bDown" ></div><!--Tipo de acesso-->
+                <div id="table-total" class="col-md-6 panel panel-default">
+                  <table id="example-total" class="display " cellspacing="0" width="100%">
+                    <thead>
+                      <tr>
+                        <th style="width:208px;">Nome</th>
+                        <th>Natureza</th>
+                        <th>dia</th>
+                      </tr>
+                    </thead>
+
+                    <tbody id="tBody-example-total">
+                      
+                    </tbody>
+                  </table>
+                </div>
+
+                <div id="table-content-total" class="panel panel-default col-md-6 black">
+
+                  <div class="panel-body">
+                    <div class="">
+                      <div class="col-md-4 border">nome</div>
+                      <div id="panel-total-nome" class="col-md-8 border holderSumary" style="overflow: hidden;"></div>
+                    </div>
+
+                    <div class="">
+                      <div class="col-md-4 border">email</div>
+                      <div id="panel-total-mail" class="col-md-8 border holderSumary" style="overflow: hidden;"></div>
+                    </div>
+                    <div class="">
+                      <div class="col-md-4 border">tel</div>
+                      <div id="panel-total-tel" class="col-md-8 border holderSumary" style="overflow: hidden;"></div>
+                    </div>
+                    <div class="">
+                      <div class="col-md-4 border">data</div>
+                      <div id="panel-total-dataComplet" class="col-md-8 border holderSumary" style="overflow: hidden;"></div>
+                    </div>
+                    <div class="">
+                      <div class="col-md-4 border">comentario</div>
+                      <div id="panel-total-msg" class="col-md-8 border holderSumary" style="height:117px overflow: auto;">
+                      </div>
+                    </div>
+                    <div class="">
+                      <div id="panel-total-natureza" class="col-md-4 border natureza"></div>
+                    </div>
+                  </div>
+                </div>
+            </section>
+
+
+             <section class="content-6 holder ">
+              <div id="eh" class="eh bDown" ></div><!--Tipo de acesso-->
+
+              <div id="table-eh" class="col-md-6 panel panel-default">
+                <table id="example" class="display " cellspacing="0" width="100%">
+                  <thead>
+                    <tr>
+                      <th style="width:208px;">Nome</th>
+                      <th>Natureza</th>
+                      <th>dia</th>
+                    </tr>
+                  </thead>
+
+                  <tbody id="tBody-example">
+                    
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div id="table-content" class="panel panel-default col-md-6 black">
+
+                <div class="panel-body">
+                  <div class="">
+                    <div class="col-md-4 border">nome</div>
+                    <div id="panel-nome" class="col-md-8 border holderSumary" style="overflow: hidden;"></div>
+                  </div>
+
+                  <div class="">
+                    <div class="col-md-4 border">email</div>
+                    <div id="panel-mail" class="col-md-8 border holderSumary" style="overflow: hidden;"></div>
+                  </div>
+                  <div class="">
+                    <div class="col-md-4 border">tel</div>
+                    <div id="panel-tel" class="col-md-8 border holderSumary" style="overflow: hidden;"></div>
+                  </div>
+                  <div class="">
+                      <div class="col-md-4 border">data</div>
+                      <div id="panel-dataComplet" class="col-md-8 border holderSumary" style="overflow: hidden;"></div>
+                    </div>
+                  <div class="">
+                    <div class="col-md-4 border">comentario</div>
+                    <div id="panel-msg" class="col-md-8 border holderSumary" style="height:117px; overflow: auto;">
+                    </div>
+                  </div>
+                  <div class="">
+                    <div id="panel-natureza" class="col-md-4 border natureza"></div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+          </div>
+        </section>
+      </div>
+   </div><!---/suporte-tabs-->
+
+ </section><!---/suporte-content-->
+
+</body>
+</html>
