@@ -45,9 +45,8 @@ chart.render();
 <script type="text/javascript" src="canvasjs.min.js"></script></head>
 
 <body>
-    <div style="width: 60%">
-      <div id="chartContainer" style="height: 460px; width: 725px;">
-    </div>
+      <div id="chartContainer" style="height: 460px; width: 760px; margin: 0 auto;">
+
 </body>
 
 </html>
