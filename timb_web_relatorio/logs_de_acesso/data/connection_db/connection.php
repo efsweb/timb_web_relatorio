@@ -29,15 +29,10 @@
 
     function select_sql(){
       $sql = 'select COUNT(tipo_acesso) from mb_timb_log_acesso where tipo_acesso LIKE "IOS" ';
-
       $rs = mysql_query($sql);
-
       $this->result_IOS = mysql_fetch_row($rs);
-
       $sql = 'select COUNT(tipo_acesso) from mb_timb_log_acesso where tipo_acesso LIKE "Android" ';
-
       $rs = mysql_query($sql);
-
       $this->result_ANDROID = mysql_fetch_row($rs);
     }      
   }
