@@ -19,7 +19,6 @@
         labelFontSize: 12,
         interval: 300,
         labelAngle: 90,
-        title: "Quantidade de Dispositivos"
       },
       data: [
       {        
