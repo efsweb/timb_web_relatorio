@@ -18,7 +18,7 @@ class connect_mysql{
     $this->servidor = 'dbmy0052.whservidor.com';
     $this->banco = 'truckinfom';
     $this->usuario = 'truckinfom';
-    $this->senha = 'YBOH2011';
+    $this->senha = 'chap1982';
     $this->link = mysql_connect($this->servidor, $this->usuario, $this->senha);
     $db = mysql_select_db($this->banco, $this->link); 
   }
