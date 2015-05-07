@@ -6,9 +6,9 @@ body{
 }
 
 .graficos{
-	max-width:718px;
+	width:718px;
 	height:450px;
-	min-width: 425px;
+	margin: 0 auto;
 }
 
 h1{
@@ -34,12 +34,12 @@ h1{
 	width:100%;
 	position:relative;
 	float:left;
-	margin:28px 0;
+	margin: 23px 0;
 }
 
 .ios-grafic{
 	float:left;
-	width:70%;
+	width:500px;
 	height:100px;
 }
 
