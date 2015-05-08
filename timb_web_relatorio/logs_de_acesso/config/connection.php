@@ -1,33 +1,39 @@
 <?php 
 class connect_mysql{
-    
-  public $servidor;
-  public $banco;
-  public $usuario;
-  public $senha;
-  public $link;   
+   
+  //RESULTADO DO GRAFICO DE BARRA - DISPOSITIVOS -  
   public $result_IOS;
   public $result_ANDROID;
 
+  //RESULTADO DO GRAFICO DE LINHAS - PRO MES
+  public $result_proc;
+
+  //ADMINISTRA A CONEXAO E INVOCA A FUNCAO PARA EXECUCAO DAS QUERYS
   function connect_mysql(){
-    
     $conection = $this->prepara_conection();
-    
-    $this->select_sql($conection);
+    $this->execute_mysql($conection);
+  }
+
+  //FUNCAO RESPONSAVEL PELA EXECUCAO DAS QUERYS E PROCEDURES
+  function execute_mysql($conection){
+    $this->select_sql_disp_plat($conection);
 
     $this->connection_procedure($conection);
   }
 
-  function prepara_conection(){
-    $this->servidor = 'dbmy0052.whservidor.com';
-    $this->banco = 'truckinfom';
-    $this->usuario = 'truckinfom';
-    $this->senha = 'chap1982';
-    $mysqli = new mysqli($this->servidor, $this->usuario, $this->senha, $this->banco);
+  //PREPARA OS DADOS PARA A CONEXAO E REALIZA A CONEXAO
+  function prepara_conection(){    
+
+    $servidor = 'dbmy0052.whservidor.com';
+    $banco = 'truckinfom';
+    $usuario = 'truckinfom';
+    $senha = 'chap1982';
+    $mysqli = new mysqli($servidor, $usuario, $senha, $banco);
     return $mysqli;
   }
 
-  function select_sql($mysqli){
+  //EXECUTA O SELECT PARA OS GRAFICOS DE BARRA - DIPOSISTIVOS E PLATAFORMA
+  function select_sql_disp_plat($mysqli){
     $sql = 'select COUNT(tipo_acesso) from mb_timb_log_acesso where tipo_acesso LIKE "IOS" ';
     $rs = $mysqli->query($sql);
     $this->result_IOS = mysqli_fetch_row($rs);
@@ -36,17 +42,15 @@ class connect_mysql{
     $this->result_ANDROID = mysqli_fetch_row($rs);
   }
 
-
-
     //PARA REALIZAR A CONEXÃO RECEBE COMO PARAMETRO A CONEXÃO
   public function connection_procedure($mysqli){
     
     // PARAMETROS PARA CHAMAR A FUNCAO QUE EXECUTA PROCEDURE 
     $procedure = 'sp_timb_fe_relatorio'; //NOME DA PROCEDURE
     $parametro = 'acesso'; //PARAMETRO PASSADO PARA A PROCEDURE
-    $result_proc = $this->call_procedure($procedure,$parametro, $mysqli); //$result_proc -> RECEBE O RESULTADO DA PROCEDURE
+    $this->result_proc = $this->call_procedure($procedure,$parametro, $mysqli); //$result_proc -> RECEBE O RESULTADO DA PROCEDURE
 
-    return $result_proc;
+    return $this->result_proc;
 
   }
   /**
@@ -63,7 +67,7 @@ class connect_mysql{
       if($DBH->prepare("CALL ".$proc_string."('". $params."')")){ //VERIFICA SE A PROCEDURE ESTA CORRETA - @return [true/false]
 
         $stmt = $mysqli->query("CALL ".$proc_string."('". $params ."')"); //EXECUTA A PROCEDURE
-        $result = mysqli_fetch_all($stmt); //RESULTADOS DA QUERY DA PROCEDURE
+        $result = mysqli_fetch_all($stmt,MYSQL_ASSOC); //RESULTADOS DA QUERY DA PROCEDURE
       } 
 
       return json_encode($result);
