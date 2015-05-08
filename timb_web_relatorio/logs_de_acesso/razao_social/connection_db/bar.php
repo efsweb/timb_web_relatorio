@@ -15,6 +15,7 @@
         axisY: {
                 labelFontSize: 14,
                 interval: 500,
+                labelAngle: 90,
             },
         axisX: {
                 labelFontSize: 14,
