@@ -1,0 +1,232 @@
+/* ---------->>> BASE <<<-----------*/
+body {
+  margin: 0;
+  background-color: #3D3E3F; }
+
+.grafico {
+  width: 718px;
+  height: 450px;
+  margin: 3px auto; }
+
+/* ---------->>> GRAFICO - EH <<<-----------*/
+.eh-grafic {
+  width: 700px;
+  height: 150px; }
+
+.legend {
+  font-family: arial;
+  color: #fff;
+  width: 232px;
+  height: 20px;
+  font-size: 11px;
+  margin: 0 auto; }
+  .legend .title {
+    display: block;
+    margin-bottom: 0.5em;
+    line-height: 1.2em;
+    padding: 0 0.3em;
+    float: left; }
+  .legend .color-sample {
+    display: block;
+    float: left;
+    width: 1em;
+    height: 1em;
+    border: 2px solid;
+    border-radius: 0.5em;
+    margin-right: 0.5em; }
+
+/* ---------->>> PLUGIN DATATABLE - EH <<<-----------*/
+.dataTables_length {
+  display: none; }
+
+#tablefilter_filter {
+  font-family: arial;
+  color: #fff;
+  font-size: 12px;
+  padding: 8px 0 0 10px;
+  width: 100%;
+  float: left; }
+  #tablefilter_filter input {
+    border-radius: 10px;
+    background-color: rgba(15, 0, 0, 0.1);
+    font-size: 12px;
+    color: #ddd;
+    font-family: Arial;
+    border-radius: 10px;
+    font-family: Arial;
+    border: 0;
+    font-size: 12px;
+    margin: 0 10px;
+    outline: none;
+    padding: 5px 13px; }
+
+.dataTables_empty {
+  font-family: arial;
+  color: #ddd;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase; }
+
+.dataTables_info {
+  display: none; }
+
+.dataTables_paginate {
+  font-family: roboto;
+  color: #ddd;
+  padding: 10px 0;
+  float: right; }
+  .dataTables_paginate a {
+    cursor: pointer;
+    background: #333333;
+    border-radius: 6px;
+    outline: none;
+    margin: 0 3px;
+    padding: 5px;
+    font-size: 12px; }
+    .dataTables_paginate a:hover {
+      background: #00AEF0; }
+  .dataTables_paginate .ui-state-disabled {
+    background: #00AEF0; }
+  .dataTables_paginate .previous, .dataTables_paginate .next {
+    background: #333333; }
+
+/* ---------->>> TABLE - EH <<<-----------*/
+.table-eh {
+  padding: 6px 0 0;
+  width: 100%;
+  height: 200px;
+  overflow: auto;
+  border-radius: 10px; }
+  .table-eh thead {
+    background: #333 !important;
+    font-size: 11px;
+    line-height: 31px;
+    height: 35px;
+    position: relative;
+    padding: 0;
+    color: #ddd;
+    text-transform: uppercase;
+    font-weight: none;
+    text-align: center;
+    font-family: Arial; }
+    .table-eh thead th {
+      border-radius: 10px; }
+    .table-eh thead .th-cor {
+      width: 30px; }
+    .table-eh thead .th-nome {
+      width: 350px; }
+  .table-eh tbody th {
+    color: #ddd;
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: none;
+    text-align: center;
+    font-family: Arial;
+    border-bottom: 1px solid #333; }
+  .table-eh tbody tr:hover {
+    background: #3a3a3a; }
+
+/* ---------->>> TABLE MODAL - EH <<<-----------*/
+.content-eh {
+  font-family: arial;
+  font-size: 12px;
+  color: #fff;
+  line-height: 23px;
+  padding: 9px;
+  width: 100%;
+  /* BARRA DE ROLAGEM DA TABELA */
+  /* Fundo da barra de rolagem */
+  /* Cor do indicador de rolagem */
+  /* Cor do indicador de rolagem - ao passar o mouse */ }
+  .content-eh .title-head {
+    background: #333;
+    font-size: 11px;
+    color: #ddd;
+    padding: 3px;
+    text-transform: uppercase;
+    font-weight: none;
+    text-align: center; }
+  .content-eh td {
+    padding-left: 10px;
+    border-bottom: 1px solid #333; }
+  .content-eh .assunto {
+    height: 100px; }
+  .content-eh .scroll {
+    height: 100px;
+    overflow: auto;
+    line-height: 16px; }
+  .content-eh ::-webkit-scrollbar {
+    width: 10px; }
+  .content-eh ::-webkit-scrollbar-track-piece {
+    background-color: #EEE;
+    border-radius: 10px;
+    border-left: 1px solid #CCC; }
+  .content-eh ::-webkit-scrollbar-thumb:vertical,
+  .content-eh ::-webkit-scrollbar-thumb:horizontal {
+    background-color: #00AEF0;
+    border-radius: 10px; }
+  .content-eh ::-webkit-scrollbar-thumb:vertical:hover,
+  .content-eh ::-webkit-scrollbar-thumb:horizontal:hover {
+    background-color: #717171; }
+
+/* ---------->>> ESTILO MODAL- EH <<<-----------*/
+.button {
+  cursor: pointer; }
+  .button:before {
+    display: initial; }
+
+/* Modal overlay styling */
+#overlay {
+  display: none;
+  z-index: 5;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%; }
+  #overlay #screen {
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.5; }
+  #overlay .dialog {
+    z-index: 10;
+    display: none;
+    position: absolute;
+    margin: auto;
+    top: 23px;
+    right: 0;
+    left: 0;
+    height: 250px;
+    width: 500px;
+    background-color: #777; }
+    #overlay .dialog .body-dialog {
+      float: left;
+      height: 250px;
+      line-height: 100px;
+      width: 500px;
+      font-family: Arial; }
+      #overlay .dialog .body-dialog p {
+        text-align: center;
+        font: 14px roboto;
+        color: #EEE;
+        vertical-align: middle; }
+        #overlay .dialog .body-dialog p span {
+          font-weight: 700; }
+    #overlay .dialog .x-dialog {
+      height: 22px;
+      width: 30px;
+      position: absolute;
+      right: 0;
+      top: 0;
+      font-family: Arial;
+      font-size: 13px;
+      color: #fff;
+      background-color: #333;
+      text-align: center;
+      vertical-align: top; }
+      #overlay .dialog .x-dialog:hover {
+        background-color: #555;
+        cursor: pointer; }
+
+/*# sourceMappingURL=style.css.map */
