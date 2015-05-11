@@ -8,7 +8,40 @@
   
   ?>
 
-  <script type="text/javascript">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+
+
+<div id="loading">
+<div id="loading-center">
+<div id="loading-center-absolute">
+<div class="object"></div>
+<div class="object"></div>
+<div class="object"></div>
+<div class="object"></div>
+<div class="object"></div>
+<div class="object"></div>
+<div class="object"></div>
+<div class="object"></div>
+<div class="object"></div>
+</div>
+</div>
+ 
+</div>
+
+      <div id="chartContainer" style="height: 460px; width: 760px; margin: 0 auto;">
+
+<script type="text/javascript" src="../../js/canvasjs.min.js"></script>
+<script src="../../js/jquery-1.11.2.min.js"></script>
+
+
+<script language="javascript" type="text/javascript">
+  $(window).load(function() {
+    $("#loading").delay(1500).fadeOut(500);
+  })
+
     window.onload = function () {
     var chart = new CanvasJS.Chart("chartContainer",
     {
@@ -37,14 +70,9 @@
       ]
     });
 
-chart.render();
-}
-</script>
-<link rel="stylesheet" type="text/css" href="css/style.css">
-<script type="text/javascript" src="../../js/canvasjs.min.js"></script></head>
-
-<body>
-      <div id="chartContainer" style="height: 460px; width: 760px; margin: 0 auto;">
+  chart.render();
+  }
+  </script>
 
 </body>
 
