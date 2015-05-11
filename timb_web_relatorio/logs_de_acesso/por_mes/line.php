@@ -11,20 +11,14 @@
 
 			<?php 
 
-			$meses = array();
+			$vl_meses = array();
+			$meses = array("Jan","Fev","Mar","Abr","Mai","Jun","Jul", "Ago", "Set", "Out","Nov", "Dez");
+
 			require_once '../config/connection.php';
 
 			$connect_mysql = new connect_mysql();
 
-			var_dump($connect_mysql);
-
-			//$meses = explode('"tipo_acesso"', $connect_mysql->result_proc,7);
-
-			$meses = explode(',', $connect_mysql->result_proc);
-			var_dump($meses);
-
-
-			exit;	
+			$vl_meses = $connect_mysql->result_proc;	
 
 			?>
 
@@ -42,7 +36,22 @@
 		// --------- IOS CONFIGURE ------ //
 		function lineChartIOS() {
 		    var data = {
-		        labels : ["Jan","Fev","Mar","Abr","Mai","Jun","Jul", "Ago", "Set", "Out", "Dez"],
+		    	//STRING DOS MESES
+		        labels : 
+		        [
+		        	<?php echo '"'.$meses[0].'"'; ?>,
+		        	<?php echo '"'.$meses[1].'"'; ?>,
+		        	<?php echo '"'.$meses[2].'"'; ?>,
+		        	<?php echo '"'.$meses[3].'"'; ?>,
+		        	<?php echo '"'.$meses[4].'"'; ?>,
+		        	<?php echo '"'.$meses[5].'"'; ?>,
+		        	<?php echo '"'.$meses[6].'"'; ?>,
+		        	<?php echo '"'.$meses[7].'"'; ?>,
+		        	<?php echo '"'.$meses[8].'"'; ?>,
+		        	<?php echo '"'.$meses[9].'"'; ?>,
+		        	<?php echo '"'.$meses[10].'"'; ?>,
+		        	<?php echo '"'.$meses[11].'"'; ?>
+		        ],
 		        datasets : [
 		            {
 		            fillColor : "rgba(66,134,168,0.2)",
@@ -51,7 +60,22 @@
 					pointStrokeColor : "#fff",
 					pointHighlightFill : "#fff",
 					pointHighlightStroke : "rgba(151,187,205,1)",
-		            data : [65,59,90,81,56,55,40,50,60,30,48],
+					//DADOS DO BANCO - PARA PREENCHER O GRAFICO
+		            data : 
+		            [
+		            	<?php echo '"'.$vl_meses[3][2].'"';?>,
+		            	<?php echo '"'.$vl_meses[3][3].'"';?>,
+		            	<?php echo '"'.$vl_meses[3][4].'"';?>,
+		            	<?php echo '"'.$vl_meses[3][5].'"';?>,
+		            	<?php echo '"'.$vl_meses[3][6].'"';?>,
+		            	<?php echo '"'.$vl_meses[3][7].'"';?>,
+		            	<?php echo '"'.$vl_meses[3][8].'"';?>,
+		            	<?php echo '"'.$vl_meses[3][9].'"';?>,
+		            	<?php echo '"'.$vl_meses[3][10].'"';?>,
+		            	<?php echo '"'.$vl_meses[3][11].'"';?>,
+		            	<?php echo '"'.$vl_meses[3][12].'"';?>,
+		            	<?php echo '"'.$vl_meses[3][13].'"';?>,
+		            ],
 		            label : 'IOS'
 		        }]
 		    };
@@ -67,7 +91,22 @@
 
 		function lineChartAndroid() {
 		    var data = {
-		        labels : ["Jan","Fev","Mar","Abr","Mai","Jun","Jul", "Ago", "Set", "Out", "Dez"],
+		    	//STRING DOS MESES
+				labels : 
+		        [
+		        	<?php echo '"'.$meses[0].'"'; ?>,
+		        	<?php echo '"'.$meses[1].'"'; ?>,
+		        	<?php echo '"'.$meses[2].'"'; ?>,
+		        	<?php echo '"'.$meses[3].'"'; ?>,
+		        	<?php echo '"'.$meses[4].'"'; ?>,
+		        	<?php echo '"'.$meses[5].'"'; ?>,
+		        	<?php echo '"'.$meses[6].'"'; ?>,
+		        	<?php echo '"'.$meses[7].'"'; ?>,
+		        	<?php echo '"'.$meses[8].'"'; ?>,
+		        	<?php echo '"'.$meses[9].'"'; ?>,
+		        	<?php echo '"'.$meses[10].'"'; ?>,
+		        	<?php echo '"'.$meses[11].'"'; ?>
+		        ],
 		        datasets : [
 		            {
 		            fillColor : "rgba(66,134,168,0.2)",
@@ -76,7 +115,22 @@
 					pointStrokeColor : "#fff",
 					pointHighlightFill : "#fff",
 					pointHighlightStroke : "rgba(151,187,205,1)",
-		            data : [65,59,90,81,56,55,40,50,60,30,48],
+					//DADOS DO BANCO - PARA PREENCHER O GRAFICO
+		            data : 
+		            [
+		            	<?php echo '"'.$vl_meses[1][2].'"';?>,
+		            	<?php echo '"'.$vl_meses[1][3].'"';?>,
+		            	<?php echo '"'.$vl_meses[1][4].'"';?>,
+		            	<?php echo '"'.$vl_meses[1][5].'"';?>,
+		            	<?php echo '"'.$vl_meses[1][6].'"';?>,
+		            	<?php echo '"'.$vl_meses[1][7].'"';?>,
+		            	<?php echo '"'.$vl_meses[1][8].'"';?>,
+		            	<?php echo '"'.$vl_meses[1][9].'"';?>,
+		            	<?php echo '"'.$vl_meses[1][10].'"';?>,
+		            	<?php echo '"'.$vl_meses[1][11].'"';?>,
+		            	<?php echo '"'.$vl_meses[1][12].'"';?>,
+		            	<?php echo '"'.$vl_meses[1][13].'"';?>,
+		            ],
 		            label : 'Android'
 		        }]
 		    };
@@ -92,7 +146,22 @@
 
 		function lineChartWeb() {
 		    var data = {
-		        labels : ["Jan","Fev","Mar","Abr","Mai","Jun","Jul", "Ago", "Set", "Out", "Dez"],
+		    	//STRING DOS MESES
+		        labels : 
+		        [
+		        	<?php echo '"'.$meses[0].'"'; ?>,
+		        	<?php echo '"'.$meses[1].'"'; ?>,
+		        	<?php echo '"'.$meses[2].'"'; ?>,
+		        	<?php echo '"'.$meses[3].'"'; ?>,
+		        	<?php echo '"'.$meses[4].'"'; ?>,
+		        	<?php echo '"'.$meses[5].'"'; ?>,
+		        	<?php echo '"'.$meses[6].'"'; ?>,
+		        	<?php echo '"'.$meses[7].'"'; ?>,
+		        	<?php echo '"'.$meses[8].'"'; ?>,
+		        	<?php echo '"'.$meses[9].'"'; ?>,
+		        	<?php echo '"'.$meses[10].'"'; ?>,
+		        	<?php echo '"'.$meses[11].'"'; ?>
+		        ],
 		        datasets : [
 		            {
 		            fillColor : "rgba(66,134,168,0.2)",
@@ -101,7 +170,22 @@
 					pointStrokeColor : "#fff",
 					pointHighlightFill : "#fff",
 					pointHighlightStroke : "rgba(151,187,205,1)",
-		            data : [65,59,90,81,56,55,40,50,60,30,48],
+					//DADOS DO BANCO - PARA PREENCHER O GRAFICO
+		            data : 
+		            [
+		            	<?php echo '"'.$vl_meses[5][2].'"';?>,
+		            	<?php echo '"'.$vl_meses[5][3].'"';?>,
+		            	<?php echo '"'.$vl_meses[5][4].'"';?>,
+		            	<?php echo '"'.$vl_meses[5][5].'"';?>,
+		            	<?php echo '"'.$vl_meses[5][6].'"';?>,
+		            	<?php echo '"'.$vl_meses[5][7].'"';?>,
+		            	<?php echo '"'.$vl_meses[5][8].'"';?>,
+		            	<?php echo '"'.$vl_meses[5][9].'"';?>,
+		            	<?php echo '"'.$vl_meses[5][10].'"';?>,
+		            	<?php echo '"'.$vl_meses[5][11].'"';?>,
+		            	<?php echo '"'.$vl_meses[5][12].'"';?>,
+		            	<?php echo '"'.$vl_meses[5][13].'"';?>,
+		            ],
 		            label : 'Android'
 		        }]
 		    };
@@ -128,8 +212,8 @@
 						<canvas class="ios-grafic" id="ios-canvas"></canvas>
 				</section>
 
-				<h1>Total do mês: <span>12000</span><br/>
-				No mês: <span>12000</span></h1>
+				<h1>Total: <span><?php echo $vl_meses[3][15];?></span><br/>
+				Total no mês: <span><?php echo $vl_meses[3][14];?></span></h1>
 			</div>
 
 			<div class="android">
@@ -139,8 +223,8 @@
 						<canvas class="android-grafic" id="android-canvas"></canvas>
 				</section>
 
-				<h1>Total do mês: <span>12000</span><br/>
-				No mês: <span>12000</span></h1>
+				<h1>Total: <span><?php echo $vl_meses[1][15];?></span><br/>
+				Total no mês: <span><?php echo $vl_meses[1][14];?></span></h1>
 
 			</div>
 
@@ -150,8 +234,8 @@
 				<section class="web-grafic">
 						<canvas class="web-grafic" id="web-canvas"></canvas>
 				</section>
-				<h1>Total do mês: <span>12000</span><br/>
-				No mês: <span>12000</span></h1>
+				<h1>Total: <span><?php echo $vl_meses[2][15];?></span><br/>
+				Totalno mês: <span><?php echo $vl_meses[2][14];?></span></h1>
 			</div>
 
 		</section>

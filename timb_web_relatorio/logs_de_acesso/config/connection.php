@@ -67,10 +67,10 @@ class connect_mysql{
       if($DBH->prepare("CALL ".$proc_string."('". $params."')")){ //VERIFICA SE A PROCEDURE ESTA CORRETA - @return [true/false]
 
         $stmt = $mysqli->query("CALL ".$proc_string."('". $params ."')"); //EXECUTA A PROCEDURE
-        $result = mysqli_fetch_all($stmt,MYSQL_ASSOC); //RESULTADOS DA QUERY DA PROCEDURE
+        $result_= mysqli_fetch_all($stmt); //RESULTADOS DA QUERY DA PROCEDURE
       } 
 
-      return json_encode($result);
+      return $result_;
   }
 }
 
