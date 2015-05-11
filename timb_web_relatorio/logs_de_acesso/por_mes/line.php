@@ -16,6 +16,8 @@
 			$ordena_meses_atual = array(); //ARMAZENADA ORDENADAMENTE APARTIR DO MES ATUAL
 			$ordena_meses = array(); //ORDENA OS MESES DE ACORDO COM O MES ATUAL - para concatenar todos.
 			
+			$array_grafico = array();
+			$grafico_ios = array();
 
 			require_once '../config/connection.php';
 
@@ -36,19 +38,33 @@
 
 			$array_ios = array();
 			$result_array_ios = array();
-
+			$i = $mes_atual+1;
 			//PERCORRE A DATA ARMAZENANDO APENAS OS MESES QUE SE PASSARAM DO ANO ATUAL (EXEMPLO: JAN - ABR = 1,2,3,4)
-			for ($i = $mes_atual+1 ; $i >= 2; $i--) { 
+			for ($i; $i >= 2; $i--) { 
 				array_push($ano_atual['1'],$i);		//ADICIONA OS VALORES A UM ARRAY ($ano_atual)
 				array_push($ordena_meses_atual,$meses[$i-2]); //REALIZA A ORDENACAO DE ACORDO COM O MES ATUAL
 
 			}
 
-			
-			for($i = 0 ; $i <= $mes_atual-1; $i++){
-				//CRIO UM ARRAY COM OS VALORES NOS INDICES CORRETOS DE CADA MES E ANO REGISTRADO EM CADA DISPOSITIVO NO BANCO 
-					$array_ano_atual['1'][$ano_atual['1'][$i]] =  $vl_meses['1'][$ano_atual['1'][$i]];							
+			for ($k = 0; $k <= 5 ; $k++) {
+
+				if($k == 1){
+					for($i = 0 ; $i <= $mes_atual-1; $i++){
+						//CRIO UM ARRAY COM OS VALORES NOS INDICES CORRETOS DE CADA MES E ANO REGISTRADO EM CADA DISPOSITIVO NO BANCO 
+							$array_ano_atual['1'][$ano_atual['1'][$i]] =  $vl_meses['1'][$ano_atual['1'][$i]];
+							array_push($array_grafico ,$vl_meses[$k][$ano_atual['1'][$i]]);
+					}					
+				}elseif($k ==3){
+					for($i = 0 ; $i <= $mes_atual-1; $i++){
+						//CRIO UM ARRAY COM OS VALORES NOS INDICES CORRETOS DE CADA MES E ANO REGISTRADO EM CADA DISPOSITIVO NO BANCO 
+							$array_ano_atual['1'][$ano_atual['1'][$i]] =  $vl_meses['1'][$ano_atual['1'][$i]];
+							array_push($grafico_ios ,$vl_meses[$k][$ano_atual['1'][$i]]);
+					}	
 				}
+			
+			}
+
+
 			
 			if($mes_atual != 12){ //VERIFICA SE REALMENTE É NECESSARIO TER CONTAGEM DOS MESES DO ANO ANTERIOR
 				
@@ -59,20 +75,37 @@
 					array_unshift($ordena_meses, $meses[$j-2]); //REALIZA A ORDENACAO DE ACORDO COM O MES ATUAL
 				}
 
-				//var_dump($exibe_meses);
-				$mes_atual++;
-				
-				for($j = 0 ; $j <= $mes_atual; $j++){
+				for ($k = 0; $k <= 5 ; $k++) {
+						$count = 12 - ($mes_atual+1);
+					if($k == 0){
 					
-					//CRIO UM ARRAY COM OS VALORES NOS INDICES CORRETOS DE CADA MES E ANO REGISTRADO EM CADA DISPOSITIVO NO BANCO 
-					$array_ano_ant['0'][$ano_ant['0'][$j]] =  $vl_meses['0'][$ano_ant['0'][$j]]; 
+					
+						for($j = 0 ; $j <= $count; $j++){
 
+							//CRIO UM ARRAY COM OS VALORES NOS INDICES CORRETOS DE CADA MES E ANO REGISTRADO EM CADA DISPOSITIVO NO BANCO 
+							$array_ano_ant['0'][$ano_ant['0'][$j]] =  $vl_meses['0'][$ano_ant['0'][$j]];
+							array_push($array_grafico,$vl_meses[$k][$ano_ant['0'][$j]]);
+
+						}				
+					}elseif($k ==2){
+
+						for($j = 0 ; $j <= $count; $j++){
+
+							//CRIO UM ARRAY COM OS VALORES NOS INDICES CORRETOS DE CADA MES E ANO REGISTRADO EM CADA DISPOSITIVO NO BANCO 
+							$array_ano_ant['0'][$ano_ant['0'][$j]] =  $vl_meses['0'][$ano_ant['0'][$j]];
+							array_push($grafico_ios,$vl_meses[$k][$ano_ant['0'][$j]]);
+
+						}	
+					}
+				
 				}
+
 			}
 			$exibe_meses = array_merge($ordena_meses_atual,$ordena_meses);
 			
-			$array_grafico = array_merge($array_ano_ant, $array_ano_atual);
-			//var_dump($array_ios);
+			//$array_grafico = array_merge($array_ano_ant, $array_ano_atual);
+//			var_dump($exibe_meses);
+//			var_dump($array_grafico);
 
 			?>
 
@@ -117,18 +150,18 @@
 					//DADOS DO BANCO - PARA PREENCHER O GRAFICO
 		            data : 
 		            [
-		            	<?php echo '"'.$vl_meses[3][2].'"';?>,
-		            	<?php echo '"'.$vl_meses[3][3].'"';?>,
-		            	<?php echo '"'.$vl_meses[3][4].'"';?>,
-		            	<?php echo '"'.$vl_meses[3][5].'"';?>,
-		            	<?php echo '"'.$vl_meses[3][6].'"';?>,
-		            	<?php echo '"'.$vl_meses[3][7].'"';?>,
-		            	<?php echo '"'.$vl_meses[3][8].'"';?>,
-		            	<?php echo '"'.$vl_meses[3][9].'"';?>,
-		            	<?php echo '"'.$vl_meses[3][10].'"';?>,
-		            	<?php echo '"'.$vl_meses[3][11].'"';?>,
-		            	<?php echo '"'.$vl_meses[3][12].'"';?>,
-		            	<?php echo '"'.$vl_meses[3][13].'"';?>,
+		        	<?php echo '"'.$grafico_ios[0].'"'; ?>,
+		        	<?php echo '"'.$grafico_ios[1].'"'; ?>,
+		        	<?php echo '"'.$grafico_ios[2].'"'; ?>,
+		        	<?php echo '"'.$grafico_ios[3].'"'; ?>,
+		        	<?php echo '"'.$grafico_ios[4].'"'; ?>,
+		        	<?php echo '"'.$grafico_ios[5].'"'; ?>,
+		        	<?php echo '"'.$grafico_ios[6].'"'; ?>,
+		        	<?php echo '"'.$grafico_ios[7].'"'; ?>,
+		        	<?php echo '"'.$grafico_ios[8].'"'; ?>,
+		        	<?php echo '"'.$grafico_ios[9].'"'; ?>,
+		        	<?php echo '"'.$grafico_ios[10].'"'; ?>,
+		        	<?php echo '"'.$grafico_ios[11].'"'; ?>,
 		            ],
 		            label : 'IOS'
 		        }]
@@ -172,18 +205,18 @@
 					//DADOS DO BANCO - PARA PREENCHER O GRAFICO
 		            data : 
 		            [
-		            	<?php echo '"'.$vl_meses[1][2].'"';?>,
-		            	<?php echo '"'.$vl_meses[1][3].'"';?>,
-		            	<?php echo '"'.$vl_meses[1][4].'"';?>,
-		            	<?php echo '"'.$vl_meses[1][5].'"';?>,
-		            	<?php echo '"'.$vl_meses[1][6].'"';?>,
-		            	<?php echo '"'.$vl_meses[1][7].'"';?>,
-		            	<?php echo '"'.$vl_meses[1][8].'"';?>,
-		            	<?php echo '"'.$vl_meses[1][9].'"';?>,
-		            	<?php echo '"'.$vl_meses[1][10].'"';?>,
-		            	<?php echo '"'.$vl_meses[1][11].'"';?>,
-		            	<?php echo '"'.$vl_meses[1][12].'"';?>,
-		            	<?php echo '"'.$vl_meses[1][13].'"';?>,
+		            	<?php echo '"'.$array_grafico[0].'"';?>,
+		            	<?php echo '"'.$array_grafico[1].'"';?>,
+		            	<?php echo '"'.$array_grafico[2].'"';?>,
+		            	<?php echo '"'.$array_grafico[3].'"';?>,
+		            	<?php echo '"'.$array_grafico[4].'"';?>,
+		            	<?php echo '"'.$array_grafico[5].'"';?>,
+		            	<?php echo '"'.$array_grafico[6].'"';?>,
+		            	<?php echo '"'.$array_grafico[7].'"';?>,
+		            	<?php echo '"'.$array_grafico[8].'"';?>,
+		            	<?php echo '"'.$array_grafico[9].'"';?>,
+		            	<?php echo '"'.$array_grafico[10].'"';?>,
+		            	<?php echo '"'.$array_grafico[11].'"';?>,
 		            ],
 		            label : 'Android'
 		        }]
