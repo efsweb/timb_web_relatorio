@@ -62,7 +62,7 @@ class connect_mysql{
    */
   public function call_procedure($proc_string, $params,$mysqli){
       
-        $stmt = mysqli_query($mysqli,("CALL ".$proc_string."('".$params."');")) or die($mysqli->error. "ufiabsf");
+        $stmt = mysqli_query($mysqli,("CALL sp_timb_rel_gerencial('acesso');")) or die($mysqli->error. "ufiabsf");
         $result= mysqli_fetch_all($stmt); //RESULTADOS DA QUERY DA PROCEDURE
        
 
