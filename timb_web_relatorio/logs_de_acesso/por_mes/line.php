@@ -18,6 +18,7 @@
 			
 			$array_grafico = array();
 			$grafico_ios = array();
+			$grafico_web = array();
 
 			require_once '../config/connection.php';
 
@@ -25,7 +26,7 @@
 
 			$vl_meses = $connect_mysql->result_proc;
 			//COLUNAS DO BANCO DE DADOS	-> VÁ EM CONFIG/CONNECTION.PHP E DE UM VAR_DUMP PARA ENTENDER AS VARIAVEIS QUE PERCORREM O CODIGO.
-
+			//var_dump($vl_meses);
 			$mes_atual = intval(date('m'));//VALOR DO MES ATUAL EM NUMERO
 
 			//VALORES RESPECTIVOS AS 12 MESES A SEREM EXIBIDOS NO GRAFICO
@@ -46,7 +47,7 @@
 
 			}
 
-			for ($k = 0; $k <= 5 ; $k++) {
+			for ($k = 0; $k <= 5 ; $k++) { //LOOP PARA VALORES DO ANO ATUAL
 
 				if($k == 1){
 					for($i = 0 ; $i <= $mes_atual-1; $i++){
@@ -60,7 +61,13 @@
 							$array_ano_atual['1'][$ano_atual['1'][$i]] =  $vl_meses['1'][$ano_atual['1'][$i]];
 							array_push($grafico_ios ,$vl_meses[$k][$ano_atual['1'][$i]]);
 					}	
-				}
+				}elseif($k ==5){
+					for($i = 0 ; $i <= $mes_atual-1; $i++){
+						//CRIO UM ARRAY COM OS VALORES NOS INDICES CORRETOS DE CADA MES E ANO REGISTRADO EM CADA DISPOSITIVO NO BANCO 
+							$array_ano_atual['1'][$ano_atual['1'][$i]] =  $vl_meses['1'][$ano_atual['1'][$i]];
+							array_push($grafico_web ,$vl_meses[$k][$ano_atual['1'][$i]]);
+					}	
+				}				
 			
 			}
 
@@ -70,33 +77,39 @@
 				
 				$j = $mes_atual+2; //ESSA SOMA É PARA SE IGUALAR A MATRIZ DO BANCO PARA A CONTAGEM DOS MESES 
 
-				for ($j ; $j <= 13; $j++) {
+				for ($j ; $j <= 13; $j++) { //LOOP PARA VALORES DO ANO ANTERIOR
+
 					array_push($ano_ant['0'],$j);	//ADICIONA OS VALORES A UM ARRAY ($ano_ant)
 					array_unshift($ordena_meses, $meses[$j-2]); //REALIZA A ORDENACAO DE ACORDO COM O MES ATUAL
 				}
 
 				for ($k = 0; $k <= 5 ; $k++) {
-						$count = 12 - ($mes_atual+1);
+					$count = 12 - ($mes_atual+1);
+					
 					if($k == 0){
-					
-					
-						for($j = 0 ; $j <= $count; $j++){
+						for($j = $count ; $j >= 0; $j--){ //ADICIONA O ARRAY DE COMEÇANDO POR DEZEMBRO
 
 							//CRIO UM ARRAY COM OS VALORES NOS INDICES CORRETOS DE CADA MES E ANO REGISTRADO EM CADA DISPOSITIVO NO BANCO 
 							$array_ano_ant['0'][$ano_ant['0'][$j]] =  $vl_meses['0'][$ano_ant['0'][$j]];
 							array_push($array_grafico,$vl_meses[$k][$ano_ant['0'][$j]]);
 
 						}				
-					}elseif($k ==2){
+					}elseif($k == 2){
 
-						for($j = 0 ; $j <= $count; $j++){
-
+						for($j = $count ; $j >= 0; $j--){
 							//CRIO UM ARRAY COM OS VALORES NOS INDICES CORRETOS DE CADA MES E ANO REGISTRADO EM CADA DISPOSITIVO NO BANCO 
 							$array_ano_ant['0'][$ano_ant['0'][$j]] =  $vl_meses['0'][$ano_ant['0'][$j]];
 							array_push($grafico_ios,$vl_meses[$k][$ano_ant['0'][$j]]);
+						}	
+					}elseif($k == 4){
 
+						for($j = $count ; $j >= 0; $j--){
+							//CRIO UM ARRAY COM OS VALORES NOS INDICES CORRETOS DE CADA MES E ANO REGISTRADO EM CADA DISPOSITIVO NO BANCO 
+							$array_ano_ant['0'][$ano_ant['0'][$j]] =  $vl_meses['0'][$ano_ant['0'][$j]];
+							array_push($grafico_web,$vl_meses[$k][$ano_ant['0'][$j]]);
 						}	
 					}
+
 				
 				}
 
@@ -260,18 +273,18 @@
 					//DADOS DO BANCO - PARA PREENCHER O GRAFICO
 		            data : 
 		            [
-		            	<?php echo '"'.$vl_meses[5][2].'"';?>,
-		            	<?php echo '"'.$vl_meses[5][3].'"';?>,
-		            	<?php echo '"'.$vl_meses[5][4].'"';?>,
-		            	<?php echo '"'.$vl_meses[5][5].'"';?>,
-		            	<?php echo '"'.$vl_meses[5][6].'"';?>,
-		            	<?php echo '"'.$vl_meses[5][7].'"';?>,
-		            	<?php echo '"'.$vl_meses[5][8].'"';?>,
-		            	<?php echo '"'.$vl_meses[5][9].'"';?>,
-		            	<?php echo '"'.$vl_meses[5][10].'"';?>,
-		            	<?php echo '"'.$vl_meses[5][11].'"';?>,
-		            	<?php echo '"'.$vl_meses[5][12].'"';?>,
-		            	<?php echo '"'.$vl_meses[5][13].'"';?>,
+		            	<?php echo '"'.$grafico_web[0].'"';?>,
+		            	<?php echo '"'.$grafico_web[1].'"';?>,
+		            	<?php echo '"'.$grafico_web[2].'"';?>,
+		            	<?php echo '"'.$grafico_web[3].'"';?>,
+		            	<?php echo '"'.$grafico_web[4].'"';?>,
+		            	<?php echo '"'.$grafico_web[5].'"';?>,
+		            	<?php echo '"'.$grafico_web[6].'"';?>,
+		            	<?php echo '"'.$grafico_web[7].'"';?>,
+		            	<?php echo '"'.$grafico_web[8].'"';?>,
+		            	<?php echo '"'.$grafico_web[9].'"';?>,
+		            	<?php echo '"'.$grafico_web[10].'"';?>,
+		            	<?php echo '"'.$grafico_web[11].'"';?>,
 		            ],
 		            label : 'Android'
 		        }]
