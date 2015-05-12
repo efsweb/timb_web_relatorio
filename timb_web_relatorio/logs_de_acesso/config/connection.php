@@ -28,17 +28,17 @@ class connect_mysql{
     $banco = 'truckinfom';
     $usuario = 'truckinfom';
     $senha = 'chap1982';
-    $mysqli = new mysqli($servidor, $usuario, $senha, $banco);
+    $mysqli = mysqli_connect($servidor, $usuario, $senha, $banco);
     return $mysqli;
   }
 
   //EXECUTA O SELECT PARA OS GRAFICOS DE BARRA - DIPOSISTIVOS E PLATAFORMA
   function select_sql_disp_plat($mysqli){
     $sql = 'select COUNT(tipo_acesso) from mb_timb_log_acesso where tipo_acesso LIKE "IOS" ';
-    $rs = $mysqli->query($sql);
+    $rs = mysqli_query($mysqli, $sql);
     $this->result_IOS = mysqli_fetch_row($rs);
     $sql = 'select COUNT(tipo_acesso) from mb_timb_log_acesso where tipo_acesso LIKE "Android" ';
-    $rs = $mysqli->query($sql);
+    $rs = mysqli_query($mysqli, $sql);
     $this->result_ANDROID = mysqli_fetch_row($rs);
   }
 
@@ -46,7 +46,7 @@ class connect_mysql{
   public function connection_procedure($mysqli){
     
     // PARAMETROS PARA CHAMAR A FUNCAO QUE EXECUTA PROCEDURE 
-    $procedure = 'sp_timb_fe_relatorio'; //NOME DA PROCEDURE
+    $procedure = 'sp_timb_rel_gerencial'; //NOME DA PROCEDURE
     $parametro = 'acesso'; //PARAMETRO PASSADO PARA A PROCEDURE
     $this->result_proc = $this->call_procedure($procedure,$parametro, $mysqli); //$result_proc -> RECEBE O RESULTADO DA PROCEDURE
 
@@ -62,15 +62,11 @@ class connect_mysql{
    */
   public function call_procedure($proc_string, $params,$mysqli){
       
-      $DBH = $mysqli->stmt_init(); //INICIALIZA UMA DECLARA PARA SER UTILIZADA PELA FUNCAO "prepare()"
-      
-      if($DBH->prepare("CALL ".$proc_string."('". $params."')")){ //VERIFICA SE A PROCEDURE ESTA CORRETA - @return [true/false]
+        $stmt = mysqli_query($mysqli,("CALL ".$proc_string."('".$params."');")) or die($mysqli->error. "ufiabsf");
+        $result= mysqli_fetch_all($stmt); //RESULTADOS DA QUERY DA PROCEDURE
+       
 
-        $stmt = $mysqli->query("CALL ".$proc_string."('". $params ."')"); //EXECUTA A PROCEDURE
-        $result_= mysqli_fetch_all($stmt); //RESULTADOS DA QUERY DA PROCEDURE
-      } 
-
-      return $result_;
+      return $result;
   }
 }
 
