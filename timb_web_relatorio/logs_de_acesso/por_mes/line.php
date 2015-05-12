@@ -43,7 +43,7 @@
 			//PERCORRE A DATA ARMAZENANDO APENAS OS MESES QUE SE PASSARAM DO ANO ATUAL (EXEMPLO: JAN - ABR = 1,2,3,4)
 			for ($i; $i >= 2; $i--) { 
 				array_push($ano_atual['1'],$i);		//ADICIONA OS VALORES A UM ARRAY ($ano_atual)
-				array_push($ordena_meses_atual,$meses[$i-2]); //REALIZA A ORDENACAO DE ACORDO COM O MES ATUAL
+				array_unshift($ordena_meses_atual,$meses[$i-2]); //REALIZA A ORDENACAO DE ACORDO COM O MES ATUAL
 
 			}
 
@@ -53,26 +53,22 @@
 					for($i = 0 ; $i <= $mes_atual-1; $i++){
 						//CRIO UM ARRAY COM OS VALORES NOS INDICES CORRETOS DE CADA MES E ANO REGISTRADO EM CADA DISPOSITIVO NO BANCO 
 							$array_ano_atual['1'][$ano_atual['1'][$i]] =  $vl_meses['1'][$ano_atual['1'][$i]];
-							array_push($array_grafico ,$vl_meses[$k][$ano_atual['1'][$i]]);
+							array_unshift($array_grafico ,$vl_meses[$k][$ano_atual['1'][$i]]);
 					}					
 				}elseif($k ==3){
 					for($i = 0 ; $i <= $mes_atual-1; $i++){
 						//CRIO UM ARRAY COM OS VALORES NOS INDICES CORRETOS DE CADA MES E ANO REGISTRADO EM CADA DISPOSITIVO NO BANCO 
 							$array_ano_atual['1'][$ano_atual['1'][$i]] =  $vl_meses['1'][$ano_atual['1'][$i]];
-							array_push($grafico_ios ,$vl_meses[$k][$ano_atual['1'][$i]]);
+							array_unshift($grafico_ios ,$vl_meses[$k][$ano_atual['1'][$i]]);
 					}	
 				}elseif($k ==5){
 					for($i = 0 ; $i <= $mes_atual-1; $i++){
 						//CRIO UM ARRAY COM OS VALORES NOS INDICES CORRETOS DE CADA MES E ANO REGISTRADO EM CADA DISPOSITIVO NO BANCO 
 							$array_ano_atual['1'][$ano_atual['1'][$i]] =  $vl_meses['1'][$ano_atual['1'][$i]];
-							array_push($grafico_web ,$vl_meses[$k][$ano_atual['1'][$i]]);
+							array_unshift($grafico_web ,$vl_meses[$k][$ano_atual['1'][$i]]);
 					}	
 				}				
-			
 			}
-
-
-			
 			if($mes_atual != 12){ //VERIFICA SE REALMENTE É NECESSARIO TER CONTAGEM DOS MESES DO ANO ANTERIOR
 				
 				$j = $mes_atual+2; //ESSA SOMA É PARA SE IGUALAR A MATRIZ DO BANCO PARA A CONTAGEM DOS MESES 
@@ -80,7 +76,7 @@
 				for ($j ; $j <= 13; $j++) { //LOOP PARA VALORES DO ANO ANTERIOR
 
 					array_push($ano_ant['0'],$j);	//ADICIONA OS VALORES A UM ARRAY ($ano_ant)
-					array_unshift($ordena_meses, $meses[$j-2]); //REALIZA A ORDENACAO DE ACORDO COM O MES ATUAL
+					array_push($ordena_meses, $meses[$j-2]); //REALIZA A ORDENACAO DE ACORDO COM O MES ATUAL
 				}
 
 				for ($k = 0; $k <= 5 ; $k++) {
@@ -91,7 +87,7 @@
 
 							//CRIO UM ARRAY COM OS VALORES NOS INDICES CORRETOS DE CADA MES E ANO REGISTRADO EM CADA DISPOSITIVO NO BANCO 
 							$array_ano_ant['0'][$ano_ant['0'][$j]] =  $vl_meses['0'][$ano_ant['0'][$j]];
-							array_push($array_grafico,$vl_meses[$k][$ano_ant['0'][$j]]);
+							array_unshift($array_grafico,$vl_meses[$k][$ano_ant['0'][$j]]);
 
 						}				
 					}elseif($k == 2){
@@ -99,22 +95,20 @@
 						for($j = $count ; $j >= 0; $j--){
 							//CRIO UM ARRAY COM OS VALORES NOS INDICES CORRETOS DE CADA MES E ANO REGISTRADO EM CADA DISPOSITIVO NO BANCO 
 							$array_ano_ant['0'][$ano_ant['0'][$j]] =  $vl_meses['0'][$ano_ant['0'][$j]];
-							array_push($grafico_ios,$vl_meses[$k][$ano_ant['0'][$j]]);
+							array_unshift($grafico_ios,$vl_meses[$k][$ano_ant['0'][$j]]);
 						}	
 					}elseif($k == 4){
 
 						for($j = $count ; $j >= 0; $j--){
 							//CRIO UM ARRAY COM OS VALORES NOS INDICES CORRETOS DE CADA MES E ANO REGISTRADO EM CADA DISPOSITIVO NO BANCO 
 							$array_ano_ant['0'][$ano_ant['0'][$j]] =  $vl_meses['0'][$ano_ant['0'][$j]];
-							array_push($grafico_web,$vl_meses[$k][$ano_ant['0'][$j]]);
+							array_unshift($grafico_web,$vl_meses[$k][$ano_ant['0'][$j]]);
 						}	
 					}
-
-				
 				}
+			}			
 
-			}
-			$exibe_meses = array_merge($ordena_meses_atual,$ordena_meses);
+			$exibe_meses = array_merge($ordena_meses,$ordena_meses_atual);
 			
 			//$array_grafico = array_merge($array_ano_ant, $array_ano_atual);
 //			var_dump($exibe_meses);
@@ -334,8 +328,8 @@
 				<section class="web-grafic">
 						<canvas class="web-grafic" id="web-canvas"></canvas>
 				</section>
-				<h1>Total: <span><?php echo $vl_meses[2][15];?></span><br/>
-				Mês Atual: <span><?php echo $vl_meses[2][14];?></span></h1>
+				<h1>Total: <span><?php echo $vl_meses[5][15];?></span><br/>
+				Mês Atual: <span><?php echo $vl_meses[5][14];?></span></h1>
 			</div>
 
 		</section>
