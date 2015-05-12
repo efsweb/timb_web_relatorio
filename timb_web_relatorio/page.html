@@ -54,15 +54,6 @@
 
 
 
-  <script>
-  $(document).ready(function() {
-    $('#myTab a').click(function (e) {
-      e.preventDefault()
-      $(this).tab('show')
-    })
-  });
-  </script>
-
 </head>
 
 <body>
@@ -80,62 +71,26 @@
 
     <!-- Tab panes -->
     <div class="tab-content">
+
       <div class="tab-pane fade in active" id="chart">
+
         <section class="tabs">
-          <input id="tab-1" type="radio" name="radio-set" class="tabs-input tab-selector-1" />
-          <label for="tab-1" class="tabs-label tab-label-1">plataforma</label>
+            <a href="logs_de_acesso\plataforma\bar.php" target="framePrincipal" for="tab-1" class="tabs-label tab-label-1">plataforma</a>
+            <a href="logs_de_acesso\por_mes\line.php" target="framePrincipal" for="tab-2" class="tabs-label tab-label-2">por mês</a>
+            <a href="logs_de_acesso\por_dispositivo\bar.php" target="framePrincipal" for="tab-3" class="tabs-label tab-label-3">por dispositivo</a>
+            <a href="logs_de_acesso\por_dispositivo\bar.php" target="framePrincipal" for="tab-4" class="tabs-label tab-label-4">cargo</a>
+            <a href="logs_de_acesso\por_dispositivo\bar.php" target="framePrincipal" for="tab-5" class="tabs-label tab-label-5">razão social</a>
 
-          <input id="tab-2" type="radio" name="radio-set" class="tabs-input tab-selector-2" />
-          <label for="tab-2" class="tabs-label tab-label-2">por mês</label>
+            <div class="clear-shadow"></div>
 
-          <input id="tab-3" type="radio" name="radio-set" class="tabs-input tab-selector-3" />
-          <label for="tab-3" class="tabs-label tab-label-3">por dispositivo</label>
+            <div class="content">
 
-          <input id="tab-4" type="radio" name="radio-set" class="tabs-input tab-selector-4" />
-          <label for="tab-4" class="tabs-label tab-label-4">cargo</label>
+              <section class="content-1 holder">
+                  <iframe name="framePrincipal" id="framePrincipal" scrolling="no" frameBorder="0" style="height: 450px; width: 100%; border:0;"></iframe>
+              </section>
 
-          <input id="tab-5" type="radio" name="radio-set" class="tabs-input tab-selector-5" />
-          <label for="tab-5" class="tabs-label tab-label-5">razão social</label>
-
-          <div class="clear-shadow"></div>
-
-          <div class="content">
-            
-
-            <section class="content-2 holder">
-              <div id="evoT" class=" graph-line">
-                <iframe src="logs_de_acesso/por_mes/line.php" scrolling="no" frameBorder="0" style="height: 450px; width: 100%; border:0;"></iframe>
-              </div><!--Por mes - total (data)-->
-            </section>
-
-            <section class="content-3 holder">
-              <div id="evoTD" class=" graph-line">
-                <iframe src="logs_de_acesso/por_dispositivo/bar.php" scrolling="no" frameBorder="0" style="height: 450px; width: 100%; border:0;"></iframe>
-              </div><!--Evolução Histórica - por dispositivo-->
-            </section>
-
-
-            <section class="content-4 holder">
-              <div class="graph-bar" id="graph-bar">
-                <iframe src="logs_de_acesso/cargo/connection_db/bar.php" scrolling="no" frameBorder="0" style="height: 450px; width: 100%; border:0;"></iframe>
-              </div><!--registro por cargo-->
-            </section>
-
-            <section class="content-5 holder">
-              <div class="graph-bar">
-                <iframe src="logs_de_acesso/razao_social/connection_db/bar.php" scrolling="no" frameBorder="0" style="height: 450px; width: 100%; border:0;"></iframe>
-              </div><!--registro por razao social-->
-              <!-- <div id='data-box' class=""></div> -->
-            </section>
-
-            <section class="content-1 holder">
-              <div id="device" class="" style="height: 350px;">
-                <iframe src="logs_de_acesso/plataforma/bar.php" scrolling="no" frameBorder="0" style="height: 450px; width: 100%; border:0; background: #333;"></iframe>
-              </div><!--Plataforma-->
-            </section>
-
-          </div>
-        </section>
+            </div>
+          </section>
       </div>
 
 
@@ -190,6 +145,19 @@
    </div><!---/suporte-tabs-->
 
  </section><!---/suporte-content-->
+
+
+
+  <script>
+  /* ------>> Alteração de Links dentro do iFrame Principal <<----- */
+
+    $(document).ready(function(){
+        $("a").on("click" , function(e) {
+            e.preventDefault();
+            $("#framePrincipal").attr("src", $(this).attr("href"));
+        });
+    });
+  </script>
 
 </body>
 </html>
