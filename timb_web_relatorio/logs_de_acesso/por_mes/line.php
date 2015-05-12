@@ -300,7 +300,7 @@
 				</section>
 
 				<h1>Total: <span><?php echo $vl_meses[3][15];?></span><br/>
-				Total no mês: <span><?php echo $vl_meses[3][14];?></span></h1>
+				Mês Atual: <span><?php echo $vl_meses[3][14];?></span></h1>
 			</div>
 
 			<div class="android">
@@ -311,7 +311,7 @@
 				</section>
 
 				<h1>Total: <span><?php echo $vl_meses[1][15];?></span><br/>
-				Total no mês: <span><?php echo $vl_meses[1][14];?></span></h1>
+				Mês Atual: <span><?php echo $vl_meses[1][14];?></span></h1>
 
 			</div>
 
@@ -322,7 +322,7 @@
 						<canvas class="web-grafic" id="web-canvas"></canvas>
 				</section>
 				<h1>Total: <span><?php echo $vl_meses[2][15];?></span><br/>
-				Totalno mês: <span><?php echo $vl_meses[2][14];?></span></h1>
+				Mês Atual: <span><?php echo $vl_meses[2][14];?></span></h1>
 			</div>
 
 		</section>
