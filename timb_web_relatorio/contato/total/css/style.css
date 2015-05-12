@@ -8,10 +8,10 @@ body {
   height: 450px;
   margin: 3px auto; }
 
-/* ---------->>> GRAFICO - EH <<<-----------*/
+/* ---------->>> GRAFICO - TOTAL <<<-----------*/
 .eh-grafic {
   width: 700px;
-  height: 150px; }
+  height: 195px; }
 
 .legend {
   font-family: arial;
@@ -43,9 +43,8 @@ body {
   font-family: arial;
   color: #fff;
   font-size: 12px;
-  padding: 8px 0 0 10px;
-  width: 100%;
-  float: left; }
+  position: absolute;
+  bottom: 8px; }
   #tablefilter_filter input {
     border-radius: 10px;
     background-color: rgba(15, 0, 0, 0.1);
@@ -94,7 +93,7 @@ body {
 .table-eh {
   padding: 6px 0 0;
   width: 100%;
-  height: 200px;
+  height: 188px;
   overflow: auto;
   border-radius: 10px; }
   .table-eh thead {
@@ -228,5 +227,3 @@ body {
       #overlay .dialog .x-dialog:hover {
         background-color: #555;
         cursor: pointer; }
-
-/*# sourceMappingURL=style.css.map */
