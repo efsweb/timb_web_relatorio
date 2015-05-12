@@ -46,8 +46,9 @@ class connect_mysql{
   public function connection_procedure($mysqli){
     
     // PARAMETROS PARA CHAMAR A FUNCAO QUE EXECUTA PROCEDURE 
-    $procedure = 'sp_timb_fe_relatorio'; //NOME DA PROCEDURE
-    $parametro = 'acesso'; //PARAMETRO PASSADO PARA A PROCEDURE
+
+    $procedure = 'sp_timb_rel_gerencial'; //NOME DA PROCEDURE
+    $parametro = "'acesso'"; //PARAMETRO PASSADO PARA A PROCEDURE
     $this->result_proc = $this->call_procedure($procedure,$parametro, $mysqli); //$result_proc -> RECEBE O RESULTADO DA PROCEDURE
 
     return $this->result_proc;
@@ -61,11 +62,8 @@ class connect_mysql{
    * @return [type]              Retorna a resposta da SP do banco
    */
   public function call_procedure($proc_string, $params,$mysqli){
-      
-        $stmt = mysqli_query($mysqli,("CALL sp_timb_rel_gerencial('acesso');")) or die($mysqli->error. "ufiabsf");
+        $stmt = mysqli_query($mysqli,("CALL $proc_string($params);")) or die($mysqli->error. "ufiabsf");
         $result= mysqli_fetch_all($stmt); //RESULTADOS DA QUERY DA PROCEDURE
-       
-
       return $result;
   }
 }
