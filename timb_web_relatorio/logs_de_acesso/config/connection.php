@@ -46,7 +46,7 @@ class connect_mysql{
   public function connection_procedure($mysqli){
     
     // PARAMETROS PARA CHAMAR A FUNCAO QUE EXECUTA PROCEDURE 
-    $procedure = 'sp_timb_rel_gerencial'; //NOME DA PROCEDURE
+    $procedure = 'sp_timb_fe_relatorio'; //NOME DA PROCEDURE
     $parametro = 'acesso'; //PARAMETRO PASSADO PARA A PROCEDURE
     $this->result_proc = $this->call_procedure($procedure,$parametro, $mysqli); //$result_proc -> RECEBE O RESULTADO DA PROCEDURE
 
