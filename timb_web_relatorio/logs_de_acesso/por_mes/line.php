@@ -16,7 +16,7 @@
 			$ordena_meses_atual = array(); //ARMAZENADA ORDENADAMENTE APARTIR DO MES ATUAL
 			$ordena_meses = array(); //ORDENA OS MESES DE ACORDO COM O MES ATUAL - para concatenar todos.
 			
-			$array_grafico = array();
+			$grafico_android = array();
 			$grafico_ios = array();
 			$grafico_web = array();
 
@@ -53,7 +53,7 @@
 					for($i = 0 ; $i <= $mes_atual-1; $i++){
 						//CRIO UM ARRAY COM OS VALORES NOS INDICES CORRETOS DE CADA MES E ANO REGISTRADO EM CADA DISPOSITIVO NO BANCO 
 							$array_ano_atual['1'][$ano_atual['1'][$i]] =  $vl_meses['1'][$ano_atual['1'][$i]];
-							array_unshift($array_grafico ,$vl_meses[$k][$ano_atual['1'][$i]]);
+							array_unshift($grafico_android ,$vl_meses[$k][$ano_atual['1'][$i]]);
 					}					
 				}elseif($k ==3){
 					for($i = 0 ; $i <= $mes_atual-1; $i++){
@@ -87,7 +87,7 @@
 
 							//CRIO UM ARRAY COM OS VALORES NOS INDICES CORRETOS DE CADA MES E ANO REGISTRADO EM CADA DISPOSITIVO NO BANCO 
 							$array_ano_ant['0'][$ano_ant['0'][$j]] =  $vl_meses['0'][$ano_ant['0'][$j]];
-							array_unshift($array_grafico,$vl_meses[$k][$ano_ant['0'][$j]]);
+							array_unshift($grafico_android,$vl_meses[$k][$ano_ant['0'][$j]]);
 
 						}				
 					}elseif($k == 2){
@@ -110,9 +110,9 @@
 
 			$exibe_meses = array_merge($ordena_meses,$ordena_meses_atual);
 			
-			//$array_grafico = array_merge($array_ano_ant, $array_ano_atual);
+			//$grafico_android = array_merge($array_ano_ant, $array_ano_atual);
 //			var_dump($exibe_meses);
-//			var_dump($array_grafico);
+//			var_dump($grafico_android);
 
 			?>
 
@@ -212,18 +212,18 @@
 					//DADOS DO BANCO - PARA PREENCHER O GRAFICO
 		            data : 
 		            [
-		            	<?php echo '"'.$array_grafico[0].'"';?>,
-		            	<?php echo '"'.$array_grafico[1].'"';?>,
-		            	<?php echo '"'.$array_grafico[2].'"';?>,
-		            	<?php echo '"'.$array_grafico[3].'"';?>,
-		            	<?php echo '"'.$array_grafico[4].'"';?>,
-		            	<?php echo '"'.$array_grafico[5].'"';?>,
-		            	<?php echo '"'.$array_grafico[6].'"';?>,
-		            	<?php echo '"'.$array_grafico[7].'"';?>,
-		            	<?php echo '"'.$array_grafico[8].'"';?>,
-		            	<?php echo '"'.$array_grafico[9].'"';?>,
-		            	<?php echo '"'.$array_grafico[10].'"';?>,
-		            	<?php echo '"'.$array_grafico[11].'"';?>,
+		            	<?php echo '"'.$grafico_android[0].'"';?>,
+		            	<?php echo '"'.$grafico_android[1].'"';?>,
+		            	<?php echo '"'.$grafico_android[2].'"';?>,
+		            	<?php echo '"'.$grafico_android[3].'"';?>,
+		            	<?php echo '"'.$grafico_android[4].'"';?>,
+		            	<?php echo '"'.$grafico_android[5].'"';?>,
+		            	<?php echo '"'.$grafico_android[6].'"';?>,
+		            	<?php echo '"'.$grafico_android[7].'"';?>,
+		            	<?php echo '"'.$grafico_android[8].'"';?>,
+		            	<?php echo '"'.$grafico_android[9].'"';?>,
+		            	<?php echo '"'.$grafico_android[10].'"';?>,
+		            	<?php echo '"'.$grafico_android[11].'"';?>,
 		            ],
 		            label : 'Android'
 		        }]
