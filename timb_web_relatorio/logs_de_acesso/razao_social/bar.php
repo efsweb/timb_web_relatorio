@@ -60,8 +60,9 @@ chart.render();
 <script type="text/javascript" src="../../js/canvasjs.min.js"></script></head>
 
 <body>
-      <div id="chartContainer" style="height: 460px; width: 760px; margin: 0 auto;">
-
+<div class="graficos">
+      <div id="chartContainer" style="height: 1200px; width: 760px; margin: 0 auto;">
+</div>
 </body>
 
 </html>
