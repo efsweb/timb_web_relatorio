@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>  
+<meta charset='utf-8'>
   <?php 
     require_once '../config/connection.php';
 
@@ -18,6 +19,11 @@
     {
       backgroundColor: "#3d3e3f",
       animationEnabled: true,
+      axisX: {
+        indexLabelFontColor: "white",
+        labelFontSize: 11,
+        interval: 1,
+      },
       axisY: {
         indexLabelFontColor: "white",
         labelFontSize: 12,
@@ -48,6 +54,8 @@
 chart.render();
 }
 </script>
+</head>
+
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <script type="text/javascript" src="../../js/canvasjs.min.js"></script></head>
 
