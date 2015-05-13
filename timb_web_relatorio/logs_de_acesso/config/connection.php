@@ -49,7 +49,7 @@ class connect_mysql{
     $procedure = 'sp_timb_rel_gerencial'; //NOME DA PROCEDURE
     $parametro = $this->parametro;
     $flag = false;
-    $array_true_flag = array("'plataforma'","'dispositivo'","'cargo'");
+    $array_true_flag = array("'plataforma'","'dispositivo'","'cargo'", "'razao_social'");
     if(in_array($parametro, $array_true_flag)){
       $flag = true;
     }
@@ -74,7 +74,7 @@ class connect_mysql{
           $result= mysqli_fetch_all($stmt); //RESULTADOS DA QUERY DA PROCEDURE  
         }else{
           $result= mysqli_fetch_all($stmt,MYSQL_ASSOC); //RESULTADOS DA QUERY DA PROCEDURE 
-         // var_dump($result);
+          //var_dump($result);
         }
         
       return $result;
