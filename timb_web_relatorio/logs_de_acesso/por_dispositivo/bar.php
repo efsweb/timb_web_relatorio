@@ -5,7 +5,8 @@
     require_once '../config/connection.php';
 
     $connect_mysql = new connect_mysql();
-  
+    $connect_mysql->parametro = "'dispositivo'";
+    $connect_mysql->connection();
   ?>
 
   <script type="text/javascript">
@@ -17,7 +18,7 @@
       axisY: {
         indexLabelFontColor: "white",
         labelFontSize: 12,
-        interval: 300,
+        interval: 50,
         labelAngle: 90,
       },
       data: [
@@ -30,8 +31,8 @@
         type: "bar",
         color: "#00AEF0",
         dataPoints: [
-        { y: <?php echo $connect_mysql->result_IOS[0]; ?>, label: "IOS", indexLabel: <?php echo '"'.$connect_mysql->result_IOS[0].'"'; ?> },
-        { y: <?php echo $connect_mysql->result_ANDROID[0]; ?>, label: "Android" , indexLabel: <?php echo '"'.$connect_mysql->result_ANDROID[0].'"'; ?> }      
+        { y: <?php echo $connect_mysql->result_proc[1]['qtde']; ?>, label: <?php echo '"'.$connect_mysql->result_proc[1]['dispositivo'].'"'; ?>, indexLabel: <?php echo '"'.$connect_mysql->result_proc[0]['qtde'].'"'; ?> },
+        { y: <?php echo $connect_mysql->result_proc[0]['qtde']; ?>, label: <?php echo '"'.$connect_mysql->result_proc[0]['dispositivo'].'"'; ?> , indexLabel: <?php echo '"'.$connect_mysql->result_proc[1]['qtde'].'"'; ?> }      
         ]
       }
       ]

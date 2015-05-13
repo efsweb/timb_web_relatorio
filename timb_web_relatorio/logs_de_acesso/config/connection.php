@@ -48,12 +48,13 @@ class connect_mysql{
     $procedure = 'sp_timb_rel_gerencial'; //NOME DA PROCEDURE
     $parametro = $this->parametro;
     $flag = false;
-    if($parametro == "'plataforma'"){
+    $array_true_flag = array("'plataforma'","'dispositivo'","'cargo'");
+    if(in_array($parametro, $array_true_flag)){
       $flag = true;
     }
       //$parametro = "'acesso'"; //PARAMETRO PASSADO PARA A PROCEDURE  
 
-    $this->result_proc = $this->call_procedure($procedure,$parametro, $mysqli,$flag); //$result_proc -> RECEBE O RESULTADO DA PROCEDURE
+    $this->result_proc = $this->call_procedure($procedure,$parametro, $mysqli, $flag); //$result_proc -> RECEBE O RESULTADO DA PROCEDURE
 
     return $this->result_proc;
 
@@ -72,6 +73,7 @@ class connect_mysql{
           $result= mysqli_fetch_all($stmt); //RESULTADOS DA QUERY DA PROCEDURE  
         }else{
           $result= mysqli_fetch_all($stmt,MYSQL_ASSOC); //RESULTADOS DA QUERY DA PROCEDURE 
+          //var_dump($result);
         }
         
       return $result;

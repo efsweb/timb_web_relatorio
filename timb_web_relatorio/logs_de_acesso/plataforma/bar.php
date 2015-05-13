@@ -52,7 +52,7 @@
       axisY: {
         indexLabelFontColor: "white",
         labelFontSize: 12,
-        interval: 300,
+        interval: 500,
         labelAngle: 90,
       },
       data: [
