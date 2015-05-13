@@ -1,4 +1,5 @@
 <?php 
+header('Content-Type: text/html; charset=utf-8');
 class connect_mysql{
    
   //RESULTADO DO GRAFICO DE BARRA - DISPOSITIVOS -  
@@ -73,7 +74,7 @@ class connect_mysql{
           $result= mysqli_fetch_all($stmt); //RESULTADOS DA QUERY DA PROCEDURE  
         }else{
           $result= mysqli_fetch_all($stmt,MYSQL_ASSOC); //RESULTADOS DA QUERY DA PROCEDURE 
-          //var_dump($result);
+         // var_dump($result);
         }
         
       return $result;
