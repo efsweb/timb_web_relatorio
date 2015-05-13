@@ -23,6 +23,8 @@
 			require_once '../config/connection.php';
 
 			$connect_mysql = new connect_mysql();
+			$connect_mysql->parametro = "'acesso'"; //PARAMETRO DETERMINADO PARA CADA GRAFICO
+			$connect_mysql->connection(); //FUNCAO QUE TRAZ TODOS OS DADOS DO GRAFICO
 
 			$vl_meses = $connect_mysql->result_proc;
 			//COLUNAS DO BANCO DE DADOS	-> VÁ EM CONFIG/CONNECTION.PHP E DE UM VAR_DUMP PARA ENTENDER AS VARIAVEIS QUE PERCORREM O CODIGO.

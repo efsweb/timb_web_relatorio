@@ -5,7 +5,9 @@
     require_once '../config/connection.php';
 
     $connect_mysql = new connect_mysql();
-  
+    $connect_mysql->parametro = "'plataforma'";
+    $connect_mysql->connection();
+
   ?>
 
 <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -63,8 +65,9 @@
         type: "bar",
         color: "#00AEF0",
         dataPoints: [
-        { y: <?php echo $connect_mysql->result_IOS[0]; ?>, label: "IOS", indexLabel: <?php echo '"'.$connect_mysql->result_IOS[0].'"'; ?> },
-        { y: <?php echo $connect_mysql->result_ANDROID[0]; ?>, label: "Android" , indexLabel: <?php echo '"'.$connect_mysql->result_ANDROID[0].'"'; ?> }      
+        { y: <?php echo $connect_mysql->result_proc[2]["qtde"] ?>, label: <?php echo '"'.$connect_mysql->result_proc[2]["tipo_acesso"].'"'; ?>, indexLabel: <?php echo '"'.$connect_mysql->result_proc[2]["qtde"].'"'; ?> },
+        { y: <?php echo $connect_mysql->result_proc[1]["qtde"] ?>, label: <?php echo '"'.$connect_mysql->result_proc[1]["tipo_acesso"].'"'; ?>, indexLabel: <?php echo '"'.$connect_mysql->result_proc[1]["qtde"].'"'; ?> },
+        { y: <?php echo $connect_mysql->result_proc[0]["qtde"]; ?>, label: <?php echo '"'.$connect_mysql->result_proc[0]["tipo_acesso"].'"'; ?> , indexLabel: <?php echo '"'.$connect_mysql->result_proc[0]["qtde"].'"'; ?> }      
         ]
       }
       ]

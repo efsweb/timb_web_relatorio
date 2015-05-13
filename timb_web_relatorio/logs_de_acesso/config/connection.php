@@ -8,15 +8,24 @@ class connect_mysql{
   //RESULTADO DO GRAFICO DE LINHAS - PRO MES
   public $result_proc;
 
-  //ADMINISTRA A CONEXAO E INVOCA A FUNCAO PARA EXECUCAO DAS QUERYS
+  //VARIAVEL PARA ARMAZENAR O VALOR DE PARAMETRO DE CADA PAGINA
+  public $parametro;
+
+  //METODO CONSTRUTOR -- 
+  //NAO INVOCO NADA NESTA FUNÇÃO POIS AINDA NÃO RECEBI A VARIAVEL PARAMENTRO DO ARQUIVO QUE POSSUI O GRAFICO
   function connect_mysql(){
+
+  }
+  
+  //ESTA FUNÇÃO AO SER CHAMADA PELOS ARQUIVOS DE GRAFICO - JÁ DECLARAM A VARIAVEL paramentro PARA CADA TIPO DE GRAFICO
+  //ADMINISTRA A CONEXAO E INVOCA A FUNCAO PARA EXECUCAO DAS QUERYS
+  function connection(){
     $conection = $this->prepara_conection();
     $this->execute_mysql($conection);
   }
 
   //FUNCAO RESPONSAVEL PELA EXECUCAO DAS QUERYS E PROCEDURES
   function execute_mysql($conection){
-    $this->select_sql_disp_plat($conection);
 
     $this->connection_procedure($conection);
   }
@@ -32,24 +41,19 @@ class connect_mysql{
     return $mysqli;
   }
 
-  //EXECUTA O SELECT PARA OS GRAFICOS DE BARRA - DIPOSISTIVOS E PLATAFORMA
-  function select_sql_disp_plat($mysqli){
-    $sql = 'select COUNT(tipo_acesso) from mb_timb_log_acesso where tipo_acesso LIKE "IOS" ';
-    $rs = mysqli_query($mysqli, $sql);
-    $this->result_IOS = mysqli_fetch_row($rs);
-    $sql = 'select COUNT(tipo_acesso) from mb_timb_log_acesso where tipo_acesso LIKE "Android" ';
-    $rs = mysqli_query($mysqli, $sql);
-    $this->result_ANDROID = mysqli_fetch_row($rs);
-  }
-
     //PARA REALIZAR A CONEXÃO RECEBE COMO PARAMETRO A CONEXÃO
   public function connection_procedure($mysqli){
-    
-    // PARAMETROS PARA CHAMAR A FUNCAO QUE EXECUTA PROCEDURE 
 
+    // PARAMETROS PARA CHAMAR A FUNCAO QUE EXECUTA PROCEDURE
     $procedure = 'sp_timb_rel_gerencial'; //NOME DA PROCEDURE
-    $parametro = "'acesso'"; //PARAMETRO PASSADO PARA A PROCEDURE
-    $this->result_proc = $this->call_procedure($procedure,$parametro, $mysqli); //$result_proc -> RECEBE O RESULTADO DA PROCEDURE
+    $parametro = $this->parametro;
+    $flag = false;
+    if($parametro == "'plataforma'"){
+      $flag = true;
+    }
+      //$parametro = "'acesso'"; //PARAMETRO PASSADO PARA A PROCEDURE  
+
+    $this->result_proc = $this->call_procedure($procedure,$parametro, $mysqli,$flag); //$result_proc -> RECEBE O RESULTADO DA PROCEDURE
 
     return $this->result_proc;
 
@@ -59,11 +63,17 @@ class connect_mysql{
    * @param  [type] $proc_string String com o nome da SP
    * @param  [type] $params      String com o valor dos parametros da SP separados por ","
    * @param  [type] $mysqli      Conexão do banco      
+   * @param  [boolean] $flag     Para trazer o resultado em MYSQL_ASSOC ou não
    * @return [type]              Retorna a resposta da SP do banco
    */
-  public function call_procedure($proc_string, $params,$mysqli){
+  public function call_procedure($proc_string, $params,$mysqli,$flag=false){
         $stmt = mysqli_query($mysqli,("CALL $proc_string($params);")) or die($mysqli->error. "ufiabsf" );
-        $result= mysqli_fetch_all($stmt); //RESULTADOS DA QUERY DA PROCEDURE
+        if(!$flag){
+          $result= mysqli_fetch_all($stmt); //RESULTADOS DA QUERY DA PROCEDURE  
+        }else{
+          $result= mysqli_fetch_all($stmt,MYSQL_ASSOC); //RESULTADOS DA QUERY DA PROCEDURE 
+        }
+        
       return $result;
   }
 }
