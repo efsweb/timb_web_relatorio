@@ -17,9 +17,10 @@
 	background-color:#333333;
 }
 
-.tabs a:hover{
-	background-color:#00AEF0;
+.link-ativo{
+	background-color:#00AEF0!important;;
 }
+
 
 .tabs-input {
 	position: absolute;

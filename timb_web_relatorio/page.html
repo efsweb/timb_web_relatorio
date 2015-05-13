@@ -56,15 +56,14 @@
   /* ------>> Alteração de Links dentro do iFrame Principal <<----- */
 
     $(document).ready(function(){
-
-        $('#first_click').click(function() {
+        $('.tabs a').click(function(e) {
+            e.preventDefault();
+            $('a').removeClass('link-ativo');
+            $(this).addClass('link-ativo');
             $("#framePrincipal").attr("src", $(this).attr("href"));
         });
         
         $('#first_click').trigger('click');
-
-        
-
     });
   </script>
 
