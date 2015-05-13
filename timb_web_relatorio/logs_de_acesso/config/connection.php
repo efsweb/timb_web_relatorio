@@ -1,5 +1,5 @@
 <?php 
-header('Content-Type: text/html; charset=utf-8');
+header("Content-Type: text/html; charset=ISO-8859-1",true); //DECODIFICA OS CARACTERES ESPECIAIS VINDOS DO BANCO
 class connect_mysql{
    
   //RESULTADO DO GRAFICO DE BARRA - DISPOSITIVOS -  
@@ -13,12 +13,12 @@ class connect_mysql{
   public $parametro;
 
   //METODO CONSTRUTOR -- 
-  //NAO INVOCO NADA NESTA FUN√á√ÉO POIS AINDA N√ÉO RECEBI A VARIAVEL PARAMENTRO DO ARQUIVO QUE POSSUI O GRAFICO
+  //NAO INVOCO NADA NESTA FUN«√O POIS AINDA N√O RECEBI A VARIAVEL PARAMENTRO DO ARQUIVO QUE POSSUI O GRAFICO
   function connect_mysql(){
 
   }
   
-  //ESTA FUN√á√ÉO AO SER CHAMADA PELOS ARQUIVOS DE GRAFICO - J√Å DECLARAM A VARIAVEL paramentro PARA CADA TIPO DE GRAFICO
+  //ESTA FUN«√O AO SER CHAMADA PELOS ARQUIVOS DE GRAFICO - J¡ DECLARAM A VARIAVEL paramentro PARA CADA TIPO DE GRAFICO
   //ADMINISTRA A CONEXAO E INVOCA A FUNCAO PARA EXECUCAO DAS QUERYS
   function connection(){
     $conection = $this->prepara_conection();
@@ -42,7 +42,7 @@ class connect_mysql{
     return $mysqli;
   }
 
-    //PARA REALIZAR A CONEX√ÉO RECEBE COMO PARAMETRO A CONEX√ÉO
+    //PARA REALIZAR A CONEX√O RECEBE COMO PARAMETRO A CONEX√O
   public function connection_procedure($mysqli){
 
     // PARAMETROS PARA CHAMAR A FUNCAO QUE EXECUTA PROCEDURE
@@ -64,8 +64,8 @@ class connect_mysql{
    * Invoca a procedure a ser utilizada
    * @param  [type] $proc_string String com o nome da SP
    * @param  [type] $params      String com o valor dos parametros da SP separados por ","
-   * @param  [type] $mysqli      Conex√£o do banco      
-   * @param  [boolean] $flag     Para trazer o resultado em MYSQL_ASSOC ou n√£o
+   * @param  [type] $mysqli      Conex„o do banco      
+   * @param  [boolean] $flag     Para trazer o resultado em MYSQL_ASSOC ou n„o
    * @return [type]              Retorna a resposta da SP do banco
    */
   public function call_procedure($proc_string, $params,$mysqli,$flag=false){
@@ -74,7 +74,6 @@ class connect_mysql{
           $result= mysqli_fetch_all($stmt); //RESULTADOS DA QUERY DA PROCEDURE  
         }else{
           $result= mysqli_fetch_all($stmt,MYSQL_ASSOC); //RESULTADOS DA QUERY DA PROCEDURE 
-          //var_dump($result);
         }
         
       return $result;
