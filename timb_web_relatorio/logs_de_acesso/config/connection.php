@@ -69,11 +69,11 @@ class connect_mysql{
    * @return [type]              Retorna a resposta da SP do banco
    */
   public function call_procedure($proc_string, $params,$mysqli,$flag=false){
-        $stmt = mysqli_query($mysqli,("CALL $proc_string($params);")) or die($mysqli->error. "ufiabsf" );
+        $stmt = mysqli_query($mysqli,("CALL $proc_string($params);")) or die($mysqli->error. " <- ERROR" );
         if(!$flag){
           $result= mysqli_fetch_all($stmt); //RESULTADOS DA QUERY DA PROCEDURE  
         }else{
-          $result= mysqli_fetch_all($stmt,MYSQL_ASSOC); //RESULTADOS DA QUERY DA PROCEDURE 
+          $result= mysqli_fetch_all($stmt,MYSQL_ASSOC); //RESULTADOS DE FORMA ASSOCIATIVA - QUERY DA PROCEDURE 
         }
         
       return $result;
