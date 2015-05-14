@@ -44,7 +44,7 @@ body {
   color: #fff;
   font-size: 12px;
   position: absolute;
-  bottom: 8px; }
+  bottom: 13px; }
   #tablefilter_filter input {
     border-radius: 10px;
     background-color: rgba(15, 0, 0, 0.1);
@@ -93,7 +93,7 @@ body {
 .table-eh {
   padding: 6px 0 0;
   width: 100%;
-  height: 188px;
+  height: 208px;
   overflow: auto;
   border-radius: 10px; }
   .table-eh thead {
