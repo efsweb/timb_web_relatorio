@@ -52,7 +52,8 @@
       axisY: {
         indexLabelFontColor: "white",
         labelFontSize: 12,
-        interval: 500,
+        gridColor: "#373839",
+        interval: 1000,
         labelAngle: 90,
       },
       data: [

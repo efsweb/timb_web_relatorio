@@ -34,6 +34,7 @@
       axisY: {
         indexLabelFontColor: "white",
         labelFontSize: 12,
+        gridColor: "#373839",
         interval: 50,
         labelAngle: 90,
       },

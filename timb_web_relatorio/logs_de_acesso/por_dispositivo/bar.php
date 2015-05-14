@@ -19,6 +19,7 @@
         indexLabelFontColor: "white",
         labelFontSize: 12,
         interval: 50,
+        gridColor: "#373839",
         labelAngle: 90,
       },
       data: [
