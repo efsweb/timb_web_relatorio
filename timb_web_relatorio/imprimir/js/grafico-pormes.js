@@ -32,7 +32,8 @@ function lineChartIOS() {
     }
 
     var options = 
-    {
+    {   
+        animation : false,
         tooltipTemplate: "<%= value %>",
         
         showTooltips: true,
@@ -75,6 +76,7 @@ function lineChartAndroid() {
 
     var options = 
     {
+        animation : false,
         tooltipTemplate: "<%= value %>",
         
         showTooltips: true,
@@ -116,6 +118,7 @@ function lineChartWeb() {
 
     var options = 
     {
+        animation : false,
         tooltipTemplate: "<%= value %>",
         
         showTooltips: true,

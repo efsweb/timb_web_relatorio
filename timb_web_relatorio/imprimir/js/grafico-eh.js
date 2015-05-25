@@ -28,6 +28,7 @@
 
 			var options = 
 			    {
+			    	animation : false,
 			        tooltipTemplate: "<%= value %>",
 			        
 			        showTooltips: true,
@@ -65,6 +66,7 @@
 
 			var options = 
 			    {
+			    	animation : false,
 			        tooltipTemplate: "<%= value %>",
 			        
 			        showTooltips: true,
@@ -102,6 +104,7 @@
 
 			var options = 
 			    {
+			    	animation : false,
 			        tooltipTemplate: "<%= value %>",
 			        
 			        showTooltips: true,
