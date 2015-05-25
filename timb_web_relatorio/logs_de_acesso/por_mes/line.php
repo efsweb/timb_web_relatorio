@@ -20,7 +20,7 @@
 			$grafico_ios = array();
 			$grafico_web = array();
 
-			require_once '../config/connection.php';
+			require_once '../../config/connection.php';
 
 			$connect_mysql = new connect_mysql();
 			$connect_mysql->parametro = "'acesso'"; //PARAMETRO DETERMINADO PARA CADA GRAFICO

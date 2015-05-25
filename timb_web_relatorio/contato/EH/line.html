@@ -5,6 +5,18 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css"> 
 		<link href='http://fonts.googleapis.com/css?family=Roboto:400,700|Electrolize' rel='stylesheet' type='text/css' />
 		<meta charset='utf-8'>
+		<?php
+			require_once '../../config/connection.php';
+
+			$connect_mysql = new connect_mysql();
+			$connect_mysql->parametro = "'detalhamento_chamado'"; //PARAMETRO DETERMINADO PARA CADA GRAFICO
+			$connect_mysql->connection(); //FUNCAO QUE TRAZ TODOS OS DADOS DO GRAFICO
+
+			$resultado = $connect_mysql->result_proc;
+
+			var_dump($resultado);
+			exit();
+		?>
 	</head>
 	<body>
 

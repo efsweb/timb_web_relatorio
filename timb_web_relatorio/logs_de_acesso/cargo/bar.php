@@ -3,7 +3,7 @@
 <head>  
 <meta charset='utf-8'>
   <?php 
-    require_once '../config/connection.php';
+    require_once '../../config/connection.php';
 
     $connect_mysql = new connect_mysql();
     $connect_mysql->parametro = "'cargo'";

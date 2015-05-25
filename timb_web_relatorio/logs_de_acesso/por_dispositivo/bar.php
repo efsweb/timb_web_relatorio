@@ -2,7 +2,7 @@
 <html>
 <head>  
   <?php 
-    require_once '../config/connection.php';
+    require_once '../../config/connection.php';
 
     $connect_mysql = new connect_mysql();
     $connect_mysql->parametro = "'dispositivo'";
