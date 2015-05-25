@@ -1,0 +1,94 @@
+@charset "UTF-8";
+/* -----------------------------------------*/
+/* ---------->>> PADR├âO BODY <<<-----------*/
+/* ----------------------------------------*/
+* {
+  background: transparent !important; }
+
+body {
+  margin: 20px 35px;
+  max-width: 2480px;
+  font-family: roboto; }
+
+.canvasjs-chart-credit {
+  display: none; }
+
+header {
+  text-align: center; }
+
+table {
+  overflow-x: auto;
+  overflow-y: hidden; }
+
+/* -----------------------------------------*/
+/* ---------->>> DIV IMPRESS <<<-----------*/
+/* ----------------------------------------*/
+.impress-content {
+  /* ---------->>> Gr├íficos EH Contato <<<-----------*/ }
+  .impress-content .logo {
+    width: 16%;
+    float: right; }
+  .impress-content #result-principal {
+    /* ---------->>> Gr├íficos Por Mes <<<-----------*/ }
+    .impress-content #result-principal h1 {
+      color: #333333;
+      font-size: 16px;
+      font-weight: bolder;
+      text-transform: uppercase;
+      text-decoration: underline; }
+    .impress-content #result-principal .titulo {
+      font-size: 22px;
+      text-align: center;
+      text-decoration: none; }
+    .impress-content #result-principal h2 {
+      color: #373839;
+      font-size: 14px;
+      text-transform: uppercase;
+      padding: 0px 10px; }
+    .impress-content #result-principal h3 {
+      font-size: 12px;
+      margin: 25px;
+      font-weight: normal; }
+    .impress-content #result-principal .graficos-pormes {
+      width: 760px !important; }
+      .impress-content #result-principal .graficos-pormes span {
+        font-weight: bolder;
+        color: #3D3E3F; }
+      .impress-content #result-principal .graficos-pormes #pormes-ios, .impress-content #result-principal .graficos-pormes #pormes-android, .impress-content #result-principal .graficos-pormes #pormes-web {
+        margin: 10px; }
+    .impress-content #result-principal .style-tbl {
+      font-size: 11px; }
+      .impress-content #result-principal .style-tbl thead {
+        background: #E9E9E9;
+        font-weight: bolder;
+        text-align: center; }
+      .impress-content #result-principal .style-tbl td {
+        border: 1px solid #BBBBBB; }
+  .impress-content .eh-grafic {
+    width: 800px;
+    height: 200px; }
+  .impress-content .legend {
+    padding: 20px; }
+    .impress-content .legend .title {
+      display: block;
+      margin-bottom: 0.5em;
+      line-height: 1.2em;
+      padding: 0 0.3em; }
+    .impress-content .legend .color-sample {
+      display: block;
+      float: left;
+      width: 1em;
+      height: 1em;
+      border: 2px solid;
+      border-radius: 0.5em;
+      margin-right: 0.5em; }
+  .impress-content #tbl-eh {
+    text-align: center; }
+    .impress-content #tbl-eh .assunto {
+      width: 300em; }
+    .impress-content #tbl-eh .telefone {
+      width: 80em; }
+    .impress-content #tbl-eh .email {
+      width: 17em; }
+    .impress-content #tbl-eh .nome {
+      width: 80em; }

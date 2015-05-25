@@ -1,0 +1,142 @@
+/* -----------------------------------------*/
+/* ---------->>> PADRÃO BODY <<<-----------*/
+/* ----------------------------------------*/
+*{
+	background:transparent !important;
+}
+
+body{
+	 margin: 20px 35px;
+	max-width: 2480px;
+	font-family: roboto;
+}
+.canvasjs-chart-credit{
+	display:none;
+}
+
+header{
+	text-align: center;
+}
+
+table{
+	overflow-x: auto; overflow-y: hidden;
+}
+
+//tr {page-break-inside:avoid;} 
+//thead   {display: table-header-group; page-break-inside:never;}
+
+/* -----------------------------------------*/
+/* ---------->>> DIV IMPRESS <<<-----------*/
+/* ----------------------------------------*/
+.impress-content{
+
+	.logo{
+		width: 16%;
+  		float: right;
+	}
+
+	#result-principal{
+		h1{
+			color:#333333;
+			font-size:16px;
+			font-weight: bolder;
+			text-transform: uppercase;
+			text-decoration: underline;
+		}
+
+		.titulo{
+			font-size: 22px;
+			text-align: center;
+			text-decoration: none;
+		}
+
+		h2{
+			color: #373839;
+			font-size: 14px;
+			text-transform: uppercase;
+			padding: 0px 10px;
+		}
+
+		h3{
+			font-size:12px;
+			margin: 25px;
+			font-weight: normal;
+		}
+
+		/* ---------->>> Gráficos Por Mes <<<-----------*/
+
+		.graficos-pormes{
+			width:760px!important; 
+
+			span{
+				font-weight: bolder;
+				color:#3D3E3F;
+			}
+
+			#pormes-ios, #pormes-android, #pormes-web{
+				margin: 10px;
+			}
+		}
+
+		.style-tbl{
+			font-size:11px;
+			thead{
+				background:#E9E9E9;
+				font-weight: bolder;
+				text-align: center;
+			}
+			td{
+				border:1px solid #BBBBBB;
+			}
+		}
+	}
+
+	/* ---------->>> Gráficos EH Contato <<<-----------*/
+
+	.eh-grafic{
+		width: 800px;
+		height: 200px;
+	}
+
+	.legend{
+		padding:20px;
+
+		.title {
+		  display: block;
+		  margin-bottom: 0.5em;
+		  line-height: 1.2em;
+		  padding: 0 0.3em;
+		}
+
+		.color-sample {
+		  display: block;
+		  float: left;
+		  width: 1em;
+		  height: 1em;
+		  border: 2px solid;
+		  border-radius: 0.5em;
+		  margin-right: 0.5em;
+		}
+
+	} 
+
+	#tbl-eh{
+		text-align: center;
+		//table-layout: fixed;
+
+		 .assunto{
+		 	width: 300em;
+		 }
+		 .telefone{
+		 	width: 80em;
+		 }
+
+		 .email{
+		 	width: 17em;
+		 }
+		 .nome{
+		 	width: 80em;
+		 }
+	}
+
+}
