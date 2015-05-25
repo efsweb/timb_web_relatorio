@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+	<title>Gráficos e Dados - Truck Info</title>
+	<link rel="stylesheet" type="text/css" href="css/style.min.css">
+	<!-- Font Family Roboto Google -->
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,700|Electrolize' rel='stylesheet' type='text/css' />
+</head>
+
+<body>
+	<div class="impress-content">
+		<header class="header print">
+
+		<img class="logo" src="img/logo-mercedez.png" />
+		<h1>Relatório Truck Info MB</h1>
+
+		</header>
+
+
+		<section id="result-principal">
+
+			<h1>1. Logs de Acesso</h1>
+				<h2>1.1 Plataforma</h2>
+
+				<div id="grafico-plataforma" style="height: 200px; width: 760px;"></div>
+
+				<h2>1.2 Por Mês</h2>
+
+				<div class="graficos-pormes">
+					<h3>1.2.1 iOS - Total: <span>122</span> | No mês: <span>345</span></h3>
+					<canvas id="pormes-ios" style="height: 150px; width: 760px;"></canvas>
+
+					<h3>1.2.2 Android - Total: <span>122</span> | No mês: <span>322</span></h3>
+					<canvas id="pormes-android" style="height: 150px; width: 760px;"></canvas>
+
+					<h3>1.2.3 Web - Total: <span>122</span> | No mês: <span>63</span></h3>
+					<canvas id="pormes-web" style="height: 150px; width: 760px;"></canvas>
+				</div>
+
+				<h2 style="page-break-before: always;">1.3 Por Dispositivo</h2>
+				<div id="grafico-pordispositivo" style="height: 250px; width: 760px;"></div>
+
+				<h2>1.4 Cargo</h2>
+				<div id="grafico-cargo" style="height: 300px; width: 760px;"></div>
+
+				<h2>1.5 Razão Social</h2>
+				<table class="style-tbl" id="tbl-razaosocial">
+					<thead>
+						<tr>
+							<td>Nome</td>
+							<td>Valor</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Mercedez Bens Vendas</td>
+							<td>238</td>
+						</tr>
+						<tr>
+							<td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make </td>
+							<td>251</td>
+						</tr>
+					</tbody>
+				</table>
+	
+
+				<h1 style="page-break-before: always;">2. Contato</h1>
+
+				<h2>2.1 TOTAL - Gráfico</h2>
+
+						<h3>Total do mês: <span>1000</span></h3>
+						<div id="chartContainer" class="eh-grafic" ></div>
+
+
+				<h2>2.2 EH - Gráfico</h2>
+
+					<h3>2.2.1 Sugestões</h3>
+
+					<canvas class="eh-grafic" id="eh-grafic-sugestoes"></canvas>
+
+					<h3>2.2.2 Produto</h3>
+					<canvas class="eh-grafic" id="eh-grafic-produto"></canvas>
+
+					<h3>2.2.3 Aplicativo</h3>
+					<canvas class="eh-grafic" id="eh-grafic-aplicativo"></canvas>
+
+
+				<h2 style="page-break-before: always;">2.3 Tabela</h2>
+
+					<table class="style-tbl" id="tbl-eh">
+					<thead>
+						<tr>
+							<td class="data">Data</td>
+							<td>Natureza</td>
+							<td class="nome">Nome</td>
+							<td class="email">Email</td>
+							<td class="telefone">Telefone</td>
+							<td class="assunto">Assunto</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>20/02/2015</td>
+							<td>sugestão</td>
+							<td>Evelise Vazquez Dib</td>
+							<td>eve@yboh.com.br</td>
+							<td>(13) 3223-7930</td>
+							<td>Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker</td>
+						</tr>
+						<tr>
+							<td>18/12/2014 </td>
+							<td>aplicativo</td>
+							<td>Fulano de Tal</td>
+							<td>fulanoaaaa@gmail.com.br</td>
+							<td>238</td>
+							<td>238</td>
+						</tr>
+					</tbody>
+				</table>
+
+		</section>
+	</div>
+
+	<script type="text/javascript" src="../js/chart.min.js"></script>
+	<script type="text/javascript" src="../js/canvasjs.min.js"></script>
+	<script src="js/grafico-plataforma.js"></script>
+	<script src="js/grafico-cargo.js"></script>
+	<script src="js/grafico-dispositivo.js"></script>
+	<script src="js/grafico-pormes.js"></script>
+	<script src="js/grafico-eh.js"></script>
+	<script src="js/grafico-total.js"></script>
+
+</body>
+</html>
