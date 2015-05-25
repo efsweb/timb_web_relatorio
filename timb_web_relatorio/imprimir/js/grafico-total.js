@@ -2,7 +2,7 @@
     var chart = new CanvasJS.Chart("chartContainer",
     {
     backgroundColor: "transparent",
-    animationEnabled: true,
+    animationEnabled: false,
     legend : {
 		fontColor: "black",
 		fontSize: 12,
