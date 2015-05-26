@@ -10,12 +10,15 @@
 
 			$connect_mysql = new connect_mysql();
 			$connect_mysql->parametro = "'grafico_linha'"; //PARAMETRO DETERMINADO PARA CADA GRAFICO
+			$connect_mysql->parametro_2 = "''"; //SEGUNDO PARAMETRO DETERMINADO PARA CADA GRAFICO
 			$connect_mysql->connection(); //FUNCAO QUE TRAZ TODOS OS DADOS DO GRAFICO
 
 			/*
 				INICIO DA ORDENACAO DOS MESES - PARA SE TORNAR OS 12 MESES ANTERIORES AO MES ATUAL
 			*/
 			$vl_mes = $connect_mysql->result_proc;
+
+			//----- INICIO ORDENACAO DOS MESES -----
 
 			$mes_atual = intval(date('m'));//VALOR DO MES ATUAL EM NUMERO			
 
@@ -58,7 +61,29 @@
 			//-----ENCERRA ORDENACAO DOS MESES-----
 
 			//-----INICIO VALORES DO GRAFICO-----
-						
+
+			$conteudo_array = array(); // PRODUTO
+			$aplicativo_array = array();
+			$sugestao_array = array();
+
+
+			for ($i= 0; $i <= $mes_atual-1; $i++) { //PERCORRER OS 12 MESES
+					array_unshift($conteudo_array,$vl_mes[$i]['qtde_conteudo']);
+					array_unshift($aplicativo_array,$vl_mes[$i]['qtde_aplicativo']);
+					array_unshift($sugestao_array,$vl_mes[$i]['qtde_sugestao']);		
+			}
+			
+
+			for ($j = $mes_atual; $j < 12; $j++ ){
+					$vl_mes[$j]['qtde_conteudo'] = !empty($vl_mes[$j]['qtde_conteudo'])?$vl_mes[$j]['qtde_conteudo']:'0';
+					$vl_mes[$j]['qtde_aplicativo'] = !empty($vl_mes[$j]['qtde_aplicativo'])?$vl_mes[$j]['qtde_aplicativo']:'0';
+					$vl_mes[$j]['qtde_sugestao'] = !empty($vl_mes[$j]['qtde_sugestao'])?$vl_mes[$j]['qtde_sugestao']:'0';
+					array_unshift($conteudo_array,$vl_mes[$j]['qtde_conteudo']);
+					array_unshift($aplicativo_array,$vl_mes[$j]['qtde_aplicativo']);
+					array_unshift($sugestao_array,$vl_mes[$j]['qtde_sugestao']);
+
+			}
+
 		?>
 	</head>
 	<body>
@@ -270,7 +295,21 @@
 					pointStrokeColor : "#fff",
 					pointHighlightFill : "#fff",
 					pointHighlightStroke : "rgba(151,187,205,1)",
-		            data : [65,59,90,81,56,55,40,50,60,30,47,10],
+		            data : 
+				        [
+				        	<?php echo '"'.$sugestao_array[0].'"'; ?>,
+				        	<?php echo '"'.$sugestao_array[1].'"'; ?>,
+				        	<?php echo '"'.$sugestao_array[2].'"'; ?>,
+				        	<?php echo '"'.$sugestao_array[3].'"'; ?>,
+				        	<?php echo '"'.$sugestao_array[4].'"'; ?>,
+				        	<?php echo '"'.$sugestao_array[5].'"'; ?>,
+				        	<?php echo '"'.$sugestao_array[6].'"'; ?>,
+				        	<?php echo '"'.$sugestao_array[7].'"'; ?>,
+				        	<?php echo '"'.$sugestao_array[8].'"'; ?>,
+				        	<?php echo '"'.$sugestao_array[9].'"'; ?>,
+				        	<?php echo '"'.$sugestao_array[10].'"'; ?>,
+				        	<?php echo '"'.$sugestao_array[11].'"'; ?>,
+				        ],
 		            label : 'Sugestões'
 		        },
 		        {
@@ -280,7 +319,21 @@
 		            pointStrokeColor : "#fff",
 		            pointHighlightFill : "#fff",
 		            pointHighlightStroke : "rgba(82,204,82,1)",
-		            data : [3,24,65,3,126,43,15,10,20,15,47,10],
+		            data : 
+				        [
+				        	<?php echo '"'.$conteudo_array[0].'"'; ?>,
+				        	<?php echo '"'.$conteudo_array[1].'"'; ?>,
+				        	<?php echo '"'.$conteudo_array[2].'"'; ?>,
+				        	<?php echo '"'.$conteudo_array[3].'"'; ?>,
+				        	<?php echo '"'.$conteudo_array[4].'"'; ?>,
+				        	<?php echo '"'.$conteudo_array[5].'"'; ?>,
+				        	<?php echo '"'.$conteudo_array[6].'"'; ?>,
+				        	<?php echo '"'.$conteudo_array[7].'"'; ?>,
+				        	<?php echo '"'.$conteudo_array[8].'"'; ?>,
+				        	<?php echo '"'.$conteudo_array[9].'"'; ?>,
+				        	<?php echo '"'.$conteudo_array[10].'"'; ?>,
+				        	<?php echo '"'.$conteudo_array[11].'"'; ?>,
+				        ],
 		            label : 'Produto'
 		        },
 		        {
@@ -290,7 +343,21 @@
 		            pointStrokeColor : "#fff",
 		            pointHighlightFill : "#fff",
 		            pointHighlightStroke : "rgba(151,187,205,1)",
-		            data : [85,9,5,83,56,42,12,100,60,85,55,10],
+		            data : 
+				        [
+				        	<?php echo '"'.$aplicativo_array[0].'"'; ?>,
+				        	<?php echo '"'.$aplicativo_array[1].'"'; ?>,
+				        	<?php echo '"'.$aplicativo_array[2].'"'; ?>,
+				        	<?php echo '"'.$aplicativo_array[3].'"'; ?>,
+				        	<?php echo '"'.$aplicativo_array[4].'"'; ?>,
+				        	<?php echo '"'.$aplicativo_array[5].'"'; ?>,
+				        	<?php echo '"'.$aplicativo_array[6].'"'; ?>,
+				        	<?php echo '"'.$aplicativo_array[7].'"'; ?>,
+				        	<?php echo '"'.$aplicativo_array[8].'"'; ?>,
+				        	<?php echo '"'.$aplicativo_array[9].'"'; ?>,
+				        	<?php echo '"'.$aplicativo_array[10].'"'; ?>,
+				        	<?php echo '"'.$aplicativo_array[11].'"'; ?>,
+				        ],
 		            label : 'Aplicativo'
 		        }]
 		    };
