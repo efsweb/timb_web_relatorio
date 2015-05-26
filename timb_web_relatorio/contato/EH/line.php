@@ -12,28 +12,29 @@
 			$connect_mysql->parametro = "'grafico_linha'"; //PARAMETRO DETERMINADO PARA CADA GRAFICO
 			$connect_mysql->connection(); //FUNCAO QUE TRAZ TODOS OS DADOS DO GRAFICO
 
+			/*
+				INICIO DA ORDENACAO DOS MESES - PARA SE TORNAR OS 12 MESES ANTERIORES AO MES ATUAL
+			*/
 			$vl_mes = $connect_mysql->result_proc;
 
 			$mes_atual = intval(date('m'));//VALOR DO MES ATUAL EM NUMERO			
 
 			$meses = array("Jan","Fev","Mar","Abr","Mai","Jun","Jul", "Ago", "Set", "Out","Nov", "Dez");
 
-			var_dump($mes_atual);
 			//var_dump($vl_mes); //[mes_ano] - [qtde_conteudo] - [qtde_aplicativo] - [qtde_sugestao]
 
 			//VALORES RESPECTIVOS AS 12 MESES A SEREM EXIBIDOS NO GRAFICO
-			$mes = array();
+
 			$ano = array();
 
-			$ordena_meses_atual = array();
-			$ordena_meses = array();
+			$ordena_meses_atual = array(); //ORDENA OS MESES DO ANO ATUAL
+			$ordena_meses = array(); //ORDENA OS MESES DO ANO ANTERIOR
 
 			$ano_atual = array();
 			$ano_ant = array();			
 
 			for ($i=0; $i < count($vl_mes); $i++) { 
-				array_push($ano,substr($vl_mes[$i]['mes_ano'],3));
-				array_push($mes,substr($vl_mes[$i]['mes_ano'],0,2));
+				array_push($ano,substr($vl_mes[$i]['mes_ano'],3));//substr("05/2015",3) = "2015"
 				if($ano[$i] == 2015){
 					array_push($ano_atual,$i);
 				}
@@ -42,17 +43,21 @@
 			$i = $mes_atual+1;
 			//PERCORRE A DATA ARMAZENANDO APENAS OS MESES QUE SE PASSARAM DO ANO ATUAL (EXEMPLO: JAN - ABR = 1,2,3,4)
 			for ($i; $i >= 2; $i--) { 
-				array_push($ano_atual,$i);		//ADICIONA OS VALORES A UM ARRAY ($ano_atual)
+				array_push($ano_atual,$i);	//ADICIONA OS VALORES A UM ARRAY ($ano_atual)
 				array_unshift($ordena_meses_atual,$meses[$i-2]); //REALIZA A ORDENACAO DE ACORDO COM O MES ATUAL
 			}
 
 			$j = $mes_atual+2; //ESSA SOMA É PARA SE IGUALAR A MATRIZ DO BANCO PARA A CONTAGEM DOS MESES 
 
-			for ($j ; $j <= 12; $j++) { //LOOP PARA VALORES DO ANO ANTERIOR
+			for ($j ; $j <= 13; $j++) { //LOOP PARA VALORES DO ANO ANTERIOR
 				array_push($ordena_meses, $meses[$j-2]); //REALIZA A ORDENACAO DE ACORDO COM O MES ATUAL
 			}
 
 			$exibe_meses = array_merge($ordena_meses,$ordena_meses_atual);
+
+			//-----ENCERRA ORDENACAO DOS MESES-----
+
+			//-----INICIO VALORES DO GRAFICO-----
 						
 		?>
 	</head>
@@ -255,6 +260,7 @@
 		        	<?php echo '"'.$exibe_meses[8].'"'; ?>,
 		        	<?php echo '"'.$exibe_meses[9].'"'; ?>,
 		        	<?php echo '"'.$exibe_meses[10].'"'; ?>,
+		        	<?php echo '"'.$exibe_meses[11].'"'; ?>,
 		        ],
 		        datasets : [
 		            {
@@ -264,7 +270,7 @@
 					pointStrokeColor : "#fff",
 					pointHighlightFill : "#fff",
 					pointHighlightStroke : "rgba(151,187,205,1)",
-		            data : [65,59,90,81,56,55,40,50,60,30,47],
+		            data : [65,59,90,81,56,55,40,50,60,30,47,10],
 		            label : 'Sugestões'
 		        },
 		        {
@@ -274,7 +280,7 @@
 		            pointStrokeColor : "#fff",
 		            pointHighlightFill : "#fff",
 		            pointHighlightStroke : "rgba(82,204,82,1)",
-		            data : [3,24,65,3,126,43,15,10,20,15,47],
+		            data : [3,24,65,3,126,43,15,10,20,15,47,10],
 		            label : 'Produto'
 		        },
 		        {
@@ -284,7 +290,7 @@
 		            pointStrokeColor : "#fff",
 		            pointHighlightFill : "#fff",
 		            pointHighlightStroke : "rgba(151,187,205,1)",
-		            data : [85,9,5,83,56,42,12,100,60,85,55],
+		            data : [85,9,5,83,56,42,12,100,60,85,55,10],
 		            label : 'Aplicativo'
 		        }]
 		    };
