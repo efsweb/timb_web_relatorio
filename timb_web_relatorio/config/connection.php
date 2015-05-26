@@ -45,7 +45,7 @@ class connect_mysql{
     $procedure = 'sp_timb_rel_gerencial'; //NOME DA PROCEDURE
     $parametro = $this->parametro;
     $flag = false;
-    $array_true_flag_contato = array("'grafico_linha'");
+    $array_true_flag_contato = array("'grafico_linha'","'grafico_total'");
     $array_true_flag_log_acesso = array("'plataforma'","'dispositivo'","'cargo'", "'razao_social'");
     if(in_array($parametro, $array_true_flag_log_acesso)){
       $flag = true;

@@ -5,6 +5,29 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css"> 
 		<link href='http://fonts.googleapis.com/css?family=Roboto:400,700|Electrolize' rel='stylesheet' type='text/css' />
 		<meta charset='utf-8'>
+		<?php
+			require_once '../../config/connection.php';
+
+			$connect_mysql = new connect_mysql();
+			$connect_mysql->parametro = "'grafico_total'"; //PARAMETRO DETERMINADO PARA CADA GRAFICO
+			$connect_mysql->parametro_2 = "''"; //SEGUNDO PARAMETRO DETERMINADO PARA CADA GRAFICO
+			$connect_mysql->connection(); //FUNCAO QUE TRAZ TODOS OS DADOS DO GRAFICO
+
+
+
+			$mes_atual = (intval(date('m')))-1;//VALOR DO MES ATUAL EM NUMERO
+			$ano_atual = intval(date('y'));//VALOR DO MES ATUAL EM NUMERO
+			$dia_atual = intval(date('d'));//VALOR DO MES ATUAL EM NUMERO			
+
+			$meses = array("Jan","Fev","Mar","Abr","Mai","Jun","Jul", "Ago", "Set", "Out","Nov", "Dez");
+			/*
+				INICIO DA ORDENACAO DOS MESES - PARA SE TORNAR OS 12 MESES ANTERIORES AO MES ATUAL
+			*/
+			$grafico_total = $connect_mysql->result_proc;
+
+			$soma_resultado = $grafico_total[0]['total'] + $grafico_total[1]['total'] + $grafico_total[2]['total'];
+
+		?>
 	</head>
 	<body>
 
@@ -16,7 +39,7 @@
 
 				<section class="options-grafic">
 						<div id="chartContainer" class="eh-grafic" ></div>
-						<h1>Total do mês: <span>1000</span></h1>
+						<h1>Total do m&ecirc;s: <span><?php echo $soma_resultado;?></span></h1>
 				</section>
 
 				<!-- TABELA PRINCIPAL DE DADOS -->
@@ -211,7 +234,7 @@ window.onload = function () {
         color: "#4286A8",
         showInLegend: "true",
         dataPoints: [
-        { x: new Date(2012, 01, 1), y: 71, indexLabel: "72" }
+        { x: new Date(<?php echo '"'.$ano_atual.'","'.$mes_atual.'","'.$dia_atual.'"'; ?>), y: <?php echo $grafico_total[2]['total'];?>, indexLabel: <?php echo '"'.$grafico_total[2]['total'].'"';?> }
         ]
       },
         {
@@ -223,7 +246,7 @@ window.onload = function () {
         color: "#52CC52",
         showInLegend: "true",
         dataPoints: [
-        { x: new Date(2012, 01, 1), y: 71 , indexLabel: "72" }
+        { x: new Date(<?php echo '"'.$ano_atual.'","'.$mes_atual.'","'.$dia_atual.'"'; ?>), y:  <?php echo $grafico_total[1]['total'];?> , indexLabel: <?php echo '"'.$grafico_total[1]['total'].'"';?> }
 
         ]
       },
@@ -236,7 +259,7 @@ window.onload = function () {
         color: "#5C5C5C",
         showInLegend: "true",
         dataPoints: [
-        { x: new Date(2012, 01, 1), y: 71,  indexLabel: "72" }
+        { x: new Date(<?php echo '"'.$ano_atual.'","'.$mes_atual.'","'.$dia_atual.'"'; ?>), y:  <?php echo $grafico_total[0]['total'];?>,  indexLabel: <?php echo '"'.$grafico_total[0]['total'].'"';?> }
 
         ]
       }
