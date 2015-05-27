@@ -27,167 +27,21 @@
 
 			$soma_resultado = $grafico_total[0]['total'] + $grafico_total[1]['total'] + $grafico_total[2]['total'];
 
+			/*---------DETALHAMENTO CHAMADO---------*/
+			$connect_mysql_chamado = new connect_mysql();
+			$connect_mysql_chamado->parametro = "'detalhamento_chamado'"; //PARAMETRO DETERMINADO PARA CADA GRAFICO
+			$connect_mysql_chamado->parametro_2 = "''"; //SEGUNDO PARAMETRO DETERMINADO PARA CADA GRAFICO
+			$connect_mysql_chamado->connection(); //FUNCAO QUE TRAZ TODOS OS DADOS DO GRAFICO
+
+			$chamado = $connect_mysql_chamado->result_proc;
+
 		?>
-	</head>
-	<body>
-
-	<!-- SEÇÃO QUE SEGURA TUDO -->
-
-		<section class="grafico">
-
-		<!-- GRÁFICO -->
-
-				<section class="options-grafic">
-						<div id="chartContainer" class="eh-grafic" ></div>
-						<h1>Total do m&ecirc;s: <span><?php echo $soma_resultado;?></span></h1>
-				</section>
-
-				<!-- TABELA PRINCIPAL DE DADOS -->
-
-				<table id="tablefilter" class="table-eh">
-					<thead>
-						<tr>
-							<th class="th-cor">Cor</th>
-							<th class="th-nome">Nome</th>
-							<th>Natureza</th>
-							<th>Dia</th>
-							<th>Status</th>
-						</tr>
-					</thead>
-					<tbody id="tBody-example">
-						<tr id="star" class="button dialog-open">
-							<th >Resultado Cor 1</th>
-							<th>Resultado Linha 1</th>
-							<th>Resultado Linha 1</th>
-							<th>Resultado Linha 1</th>
-							<th>Resultado Linha 1</th>
-						</tr>
-						<tr>
-							<th>Resultado Cor 2</th>
-							<th>Resultado Linha 2</th>
-							<th>Resultado Linha 2</th>
-							<th>Resultado Linha 2</th>
-							<th>Resultado Linha 1</th>
-						</tr>
-						<tr>
-							<th>Resultado Cor 3</th>
-							<th>Resultado Linha 3</th>
-							<th>Resultado Linha 3</th>
-							<th>Resultado Linha 3</th>
-							<th>Resultado Linha 1</th>
-						</tr>
-
-						</tr>
-						<tr>
-							<th>Resultado Cor 3</th>
-							<th>Resultado Linha 3</th>
-							<th>Resultado Linha 3</th>
-							<th>Resultado Linha 3</th>
-							<th>Resultado Linha 1</th>
-						</tr>						
-						<tr>
-							<th>Resultado Cor 3</th>
-							<th>Resultado Linha 3</th>
-							<th>Resultado Linha 3</th>
-							<th>Resultado Linha 3</th>
-							<th>Resultado Linha 1</th>
-						</tr>
-						<tr>
-							<th>Resultado Cor 3</th>
-							<th>Resultado Linha 3</th>
-							<th>Resultado Linha 3</th>
-							<th>Resultado Linha 3</th>
-							<th>Resultado Linha 1</th>
-						</tr>
-						<tr>
-							<th>Resultado Cor 3</th>
-							<th>Resultado Linha 3</th>
-							<th>Resultado Linha 3</th>
-							<th>Resultado Linha 3</th>
-							<th>Resultado Linha 1</th>
-						</tr>
-						<tr>
-							<th>Resultado Cor 3</th>
-							<th>Resultado Linha 3</th>
-							<th>Resultado Linha 3</th>
-							<th>Resultado Linha 3</th>
-							<th>Resultado Linha 1</th>
-						</tr>
-						<tr>
-							<th>Resultado Cor 3</th>
-							<th>Resultado Linha 3</th>
-							<th>Resultado Linha 3</th>
-							<th>Resultado Linha 3</th>
-							<th>Resultado Linha 1</th>
-						</tr>
-						<tr>
-							<th>Resultado Cor 3</th>
-							<th>Resultado Linha 3</th>
-							<th>Resultado Linha 3</th>
-							<th>Resultado Linha 3</th>
-							<th>Resultado Linha 1</th>
-						</tr>
-						<tr>
-							<th>Resultado Cor 3</th>
-							<th>Resultado Linha 3</th>
-							<th>Resultado Linha 3</th>
-							<th>Resultado Linha 3</th>
-							<th>Resultado Linha 1</th>
-						</tr>
-					</tbody>
-				</table>
-
-
-				<!-- MODAL -->
-
-			  	<div id="overlay">
-			    	<div id="screen"></div>
-			      	<div id="dialog-star" class="dialog">
-			        	<div class="body-dialog">
-
-			        	<!-- TABELA COM TELEFONES E COMENTÁRIOS -->
-				          <table class="content-eh">
-				          	<tr>
-				          		<td class="title-head">Data:</td>
-				          		<td>dataqui</td>
-				          		<td class="title-head">Natureza:</td>
-				          		<td>naturezaqui</td>
-				          	</tr>
-				          	<tr>
-				          		<td class="title-head">Nome:</td>
-				          		<td colspan="3">nomeaqui</td>
-				          	</tr>
-
-				          	 <tr>
-				          		<td class="title-head">Email:</td>
-				          		<td colspan="3">emailaqui</td>
-				          	</tr>
-				          	<tr>
-				          		<td class="title-head">Tel:</td>
-				          		<td colspan="3">telaqui</td>
-				          	</tr>
-				          	<tr class="assunto">
-				          		<td class="title-head">Assunto:</td>
-				          		<td colspan="3"><div class="scroll">
-				          		Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue n
-
-				          		</td>
-				          		</div>
-				          	</tr>
-				          </table>
-						</div>
-			        	<div class="x-dialog">x</div>
-			      	</div>
-			    </div>
-			</div>
-
-
-
 		<script src="../../js/Chart.min.js"></script>
 		<script src="../../js/canvasjs.min.js"></script>
 		<script src="../../js/jquery-1.11.2.min.js"></script>
 		<script src="../../js/jquery.dataTables.js"></script>
 		<script src="../js/modal-eh.js"></script>
+		
 
 
 		<script>
@@ -269,6 +123,91 @@ window.onload = function () {
     chart.render();
   }
 		</script>
+	</head>
+	<body>
+
+	<!-- SEÇÃO QUE SEGURA TUDO -->
+
+		<section class="grafico">
+
+		<!-- GRÁFICO -->
+
+				<section class="options-grafic">
+						<div id="chartContainer" class="eh-grafic" ></div>
+						<h1>Total do m&ecirc;s: <span><?php echo $soma_resultado;?></span></h1>
+				</section>
+
+				<!-- TABELA PRINCIPAL DE DADOS -->
+
+				<table id="tablefilter" class="table-eh">
+					<thead>
+						<tr>
+							<th class="th-cor">Cor</th>
+							<th class="th-nome">Nome</th>
+							<th>Natureza</th>
+							<th>Dia</th>
+							<th>Status</th>
+						</tr>
+					</thead>
+					<tbody id="tBody-example">
+						<?php
+						for ($i=0; $i < count($chamado); $i++) { 
+							echo ("<tr id='".$chamado[$i]['data']."' class='button dialog-open'>");
+							//echo("<th>".$chamado[$i]['cor']."</th>");
+							echo("<th> COR </th>");
+							echo("<th>".$chamado[$i]['nome']."</th>");
+							echo("<th>".$chamado[$i]['natureza']."</th>");
+							echo("<th>".$chamado[$i]['data']."</th>");
+							echo("<th>".$chamado[$i]['status']."</th>");
+							echo("</tr>");
+						}
+						?>
+					</tbody>
+				</table>
+
+
+				<!-- MODAL -->
+
+			  	<div id="overlay">
+			    	<div id="screen"></div>
+			      	<div id='dialog-' class="dialog">
+			        	<div class="body-dialog">
+
+			        	<!-- TABELA COM TELEFONES E COMENTÁRIOS -->
+				          <table class="content-eh">
+				          	<tr>
+				          		<td class="title-head">Data:</td>
+				          		<td id="data"></td>
+				          		<td class="title-head">Natureza:</td>
+				          		<td id="natureza"></td>
+				          	</tr>
+				          	<tr>
+				          		<td class="title-head">Nome:</td>
+				          		<td colspan="3" id="nome"></td>
+				          	</tr>
+
+				          	 <tr>
+				          		<td class="title-head">Email:</td>
+				          		<td colspan="3" id="email"></td>
+				          	</tr>
+				          	<tr>
+				          		<td class="title-head">Tel:</td>
+				          		<td colspan="3" id="telefone"></td>
+				          	</tr>
+				          	<tr class="assunto">
+				          		<td class="title-head">Assunto:</td>
+				          		<td colspan="3"><div class="scroll">
+				          		Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue n
+
+				          		</td>
+				          		</div>
+				          	</tr>
+				          </table>
+						</div>
+			        	<div class="x-dialog">x</div>
+			      	</div>
+			    </div>
+			</div>
 
   </body>
 </html>

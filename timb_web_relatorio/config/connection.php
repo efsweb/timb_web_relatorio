@@ -44,8 +44,9 @@ class connect_mysql{
     // PARAMETROS PARA CHAMAR A FUNCAO QUE EXECUTA PROCEDURE
     $procedure = 'sp_timb_rel_gerencial'; //NOME DA PROCEDURE
     $parametro = $this->parametro;
+    $parametro_2 = $this->parametro_2;
     $flag = false;
-    $array_true_flag_contato = array("'grafico_linha'","'grafico_total'");
+    $array_true_flag_contato = array("'grafico_linha'","'grafico_total'","'detalhamento_chamado'");
     $array_true_flag_log_acesso = array("'plataforma'","'dispositivo'","'cargo'", "'razao_social'");
     if(in_array($parametro, $array_true_flag_log_acesso)){
       $flag = true;
@@ -54,7 +55,7 @@ class connect_mysql{
     }
       //$parametro = "'acesso'"; //PARAMETRO PASSADO PARA A PROCEDURE  
 
-    $this->result_proc = $this->call_procedure($procedure,$parametro, $mysqli, $flag); //$result_proc -> RECEBE O RESULTADO DA PROCEDURE
+    $this->result_proc = $this->call_procedure($procedure,$parametro,$parametro_2, $mysqli, $flag); //$result_proc -> RECEBE O RESULTADO DA PROCEDURE
 
     return $this->result_proc;
 
@@ -67,8 +68,8 @@ class connect_mysql{
    * @param  [boolean] $flag     Para trazer o resultado em MYSQL_ASSOC ou não
    * @return [type]              Retorna a resposta da SP do banco
    */
-  public function call_procedure($proc_string, $params,$mysqli,$flag=false){
-        $stmt = mysqli_query($mysqli,("CALL $proc_string($params,'');")) or die($mysqli->error. " <- ERROR" );
+  public function call_procedure($proc_string, $params, $params_2, $mysqli,$flag=false){
+        $stmt = mysqli_query($mysqli,("CALL $proc_string($params,$params_2);")) or die($mysqli->error. " <- ERROR" );
         if(!$flag){
           $result= mysqli_fetch_all($stmt); //RESULTADOS DA QUERY DA PROCEDURE  
         }else{

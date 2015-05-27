@@ -6,6 +6,7 @@
 
     $connect_mysql = new connect_mysql();
     $connect_mysql->parametro = "'plataforma'";
+    $connect_mysql->parametro_2 = "''";
     $connect_mysql->connection();
 
   ?>

@@ -7,6 +7,7 @@
 
     $connect_mysql = new connect_mysql();
     $connect_mysql->parametro = "'cargo'";
+    $connect_mysql->parametro_2 = "''";
     $connect_mysql->connection();
 
     $contador = count($connect_mysql->result_proc); //contador de elementos do array

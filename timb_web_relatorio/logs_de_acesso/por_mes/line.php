@@ -24,6 +24,7 @@
 
 			$connect_mysql = new connect_mysql();
 			$connect_mysql->parametro = "'acesso'"; //PARAMETRO DETERMINADO PARA CADA GRAFICO
+			$connect_mysql->parametro_2 = "''";
 			$connect_mysql->connection(); //FUNCAO QUE TRAZ TODOS OS DADOS DO GRAFICO
 
 			$vl_meses = $connect_mysql->result_proc;

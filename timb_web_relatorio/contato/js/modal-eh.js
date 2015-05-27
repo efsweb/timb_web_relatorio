@@ -8,9 +8,16 @@ modal.hide = function() {
 $(document).ready(function() {
   // Open appropriate dialog when clicking on anything with class "dialog-open"
   $('.dialog-open').click(function() {
-    modal.id = '#dialog-' + this.id;
-    $('#overlay').fadeIn();
-    $(modal.id).fadeIn();
+    var x = this.id;
+    $.post('modal.php',{id:x}).done(function(data){
+      //$('#data').html(data);
+      console.log(data);
+      var result = JSON.parse(data);
+
+      modal.id = '#dialog-';
+      $('#overlay').fadeIn();
+      $(modal.id).fadeIn();      
+    }); 
   });
   // Close dialog when clicking on the "x-dialog"
   $('.x-dialog').click(function() {
