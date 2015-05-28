@@ -10,9 +10,9 @@ $(document).ready(function() {
   $('.dialog-open').click(function() {
     var x = this.id;
     console.log('data '+ x);
+    //ENVIA O ID PARA O MODAL.PHP
     $.post('modal.php',{id:x}).done(function(data){
-      //$('#data').html(data);
-      console.log(data);
+      
       var arr = data.split('##');
 
       $('#natureza').html(arr[0]);
