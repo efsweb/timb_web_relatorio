@@ -18,6 +18,14 @@
 			*/
 			$vl_mes = $connect_mysql->result_proc;
 
+			/*---------DETALHAMENTO CHAMADO---------*/
+			$connect_mysql_chamado = new connect_mysql();
+			$connect_mysql_chamado->parametro = "'detalhamento_chamado'"; //PARAMETRO DETERMINADO PARA CADA GRAFICO
+			$connect_mysql_chamado->parametro_2 = "''"; //SEGUNDO PARAMETRO DETERMINADO PARA CADA GRAFICO
+			$connect_mysql_chamado->connection(); //FUNCAO QUE TRAZ TODOS OS DADOS DO GRAFICO
+
+			$chamado = $connect_mysql_chamado->result_proc;
+
 			//----- INICIO ORDENACAO DOS MESES -----
 
 			$mes_atual = intval(date('m'));//VALOR DO MES ATUAL EM NUMERO			
@@ -112,85 +120,30 @@
 						</tr>
 					</thead>
 					<tbody id="tBody-example">
-						<tr id="star" class="button dialog-open">
-							<th >Resultado Cor 1</th>
-							<th>Resultado Linha 1</th>
-							<th>Resultado Linha 1</th>
-							<th>Resultado Linha 1</th>
-							<th>Resultado Linha 1</th>
-						</tr>
-						<tr>
-							<th>Resultado Cor 2</th>
-							<th>Resultado Linha 2</th>
-							<th>Resultado Linha 2</th>
-							<th>Resultado Linha 2</th>
-							<th>Resultado Linha 1</th>
-						</tr>
-						<tr>
-							<th>Resultado Cor 3</th>
-							<th>Resultado Linha 3</th>
-							<th>Resultado Linha 3</th>
-							<th>Resultado Linha 3</th>
-							<th>Resultado Linha 1</th>
-						</tr>
+						<?php
+						for ($i=0; $i < count($chamado); $i++) { 
 
-						</tr>
-						<tr>
-							<th>Resultado Cor 3</th>
-							<th>Resultado Linha 3</th>
-							<th>Resultado Linha 3</th>
-							<th>Resultado Linha 3</th>
-							<th>Resultado Linha 1</th>
-						</tr>						
-						<tr>
-							<th>Resultado Cor 3</th>
-							<th>Resultado Linha 3</th>
-							<th>Resultado Linha 3</th>
-							<th>Resultado Linha 3</th>
-							<th>Resultado Linha 1</th>
-						</tr>
-						<tr>
-							<th>Resultado Cor 3</th>
-							<th>Resultado Linha 3</th>
-							<th>Resultado Linha 3</th>
-							<th>Resultado Linha 3</th>
-							<th>Resultado Linha 1</th>
-						</tr>
-						<tr>
-							<th>Resultado Cor 3</th>
-							<th>Resultado Linha 3</th>
-							<th>Resultado Linha 3</th>
-							<th>Resultado Linha 3</th>
-							<th>Resultado Linha 1</th>
-						</tr>
-						<tr>
-							<th>Resultado Cor 3</th>
-							<th>Resultado Linha 3</th>
-							<th>Resultado Linha 3</th>
-							<th>Resultado Linha 3</th>
-							<th>Resultado Linha 1</th>
-						</tr>
-												<tr>
-							<th>Resultado Cor 3</th>
-							<th>Resultado Linha 3</th>
-							<th>Resultado Linha 3</th>
-							<th>Resultado Linha 3</th>
-							<th>Resultado Linha 1</th>
-						</tr>
-												<tr>
-							<th>Resultado Cor 3</th>
-							<th>Resultado Linha 3</th>
-							<th>Resultado Linha 3</th>
-							<th>Resultado Linha 3</th>
-							<th>Resultado Linha 1</th>
-						</tr>
-												<tr>
-							<th>Resultado Cor 3</th>
-							<th>Resultado Linha 3</th>
-							<th>Resultado Linha 3</th>
-							<th>Resultado Linha 3</th>
-							<th>Resultado Linha 1</th>
-						</tr>
+							$natureza = strtoupper($chamado[$i]['natureza']);
+
+							if($natureza == 'APLICATIVO'){
+								$class = 'cinza';
+							}elseif ($natureza == 'CONTEúDO') {
+								$class = 'verde';
+							}elseif ($natureza == 'SUGESTãO') {
+								$class = 'azul';
+							}else{
+								$class='';
+							}
+							echo ("<tr id='".$chamado[$i]['data']."' class='button dialog-open'>");
+							//echo("<th>".$chamado[$i]['cor']."</th>");
+							echo("<th class=".$class.">  </th>");
+							echo("<th>".$chamado[$i]['nome']."</th>");
+							echo("<th>".$chamado[$i]['natureza']."</th>");
+							echo("<th>".date("d/m/Y",strtotime(substr($chamado[$i]['data'],0,10)))."</th>");
+							echo("<th>".$chamado[$i]['status']."</th>");
+							echo("</tr>");
+						}
+						?>
 					</tbody>
 				</table>
 
@@ -199,37 +152,39 @@
 
 			  	<div id="overlay">
 			    	<div id="screen"></div>
-			      	<div id="dialog-star" class="dialog">
+			      	<div id='dialog-' class="dialog">
 			        	<div class="body-dialog">
 
 			        	<!-- TABELA COM TELEFONES E COMENTÁRIOS -->
 				          <table class="content-eh">
 				          	<tr>
 				          		<td class="title-head">Data:</td>
-				          		<td>dataqui</td>
+				          		<td id="data"></td>
 				          		<td class="title-head">Natureza:</td>
-				          		<td>naturezaqui</td>
+				          		<td id="natureza"></td>
 				          	</tr>
 				          	<tr>
 				          		<td class="title-head">Nome:</td>
-				          		<td colspan="3">nomeaqui</td>
+				          		<td colspan="3" id="nome"></td>
 				          	</tr>
 
 				          	 <tr>
 				          		<td class="title-head">Email:</td>
-				          		<td colspan="3">emailaqui</td>
+				          		<td colspan="3" id="email"></td>
 				          	</tr>
 				          	<tr>
 				          		<td class="title-head">Tel:</td>
-				          		<td colspan="3">telaqui</td>
+				          		<td colspan="3" id="telefone"></td>
 				          	</tr>
 				          	<tr class="assunto">
 				          		<td class="title-head">Assunto:</td>
-				          		<td colspan="3"><div class="scroll">
+				          		<td colspan="3">
+				          			<div class="scroll" id="mensagem">
 				          		Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue n
 
+				          			</div>
 				          		</td>
-				          		</div>
+				          		
 				          	</tr>
 				          </table>
 						</div>
@@ -237,9 +192,6 @@
 			      	</div>
 			    </div>
 			</div>
-
-
-
 
 		<script src="../../js/Chart.min.js"></script>
 		<script src="../../js/jquery-1.11.2.min.js"></script>

@@ -1,10 +1,9 @@
-<!doctype html>
 <html>
 	<head>
 		<title>Line Chart</title>
 		<link rel="stylesheet" type="text/css" href="css/style.css"> 
 		<link href='http://fonts.googleapis.com/css?family=Roboto:400,700|Electrolize' rel='stylesheet' type='text/css' />
-		<meta charset='utf-8'>
+		<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
 		<?php
 			require_once '../../config/connection.php';
 
@@ -40,7 +39,7 @@
 		<script src="../../js/canvasjs.min.js"></script>
 		<script src="../../js/jquery-1.11.2.min.js"></script>
 		<script src="../../js/jquery.dataTables.js"></script>
-		<script src="../js/modal-eh.js"></script>
+		<script type="text/javascript" src="../js/modal-eh.js" charset="utf-8"></script>
 		
 
 
@@ -152,12 +151,24 @@ window.onload = function () {
 					<tbody id="tBody-example">
 						<?php
 						for ($i=0; $i < count($chamado); $i++) { 
+
+							$natureza = strtoupper($chamado[$i]['natureza']);
+
+							if($natureza == 'APLICATIVO'){
+								$class = 'cinza';
+							}elseif ($natureza == 'CONTEúDO') {
+								$class = 'verde';
+							}elseif ($natureza == 'SUGESTãO') {
+								$class = 'azul';
+							}else{
+								$class='';
+							}
 							echo ("<tr id='".$chamado[$i]['data']."' class='button dialog-open'>");
 							//echo("<th>".$chamado[$i]['cor']."</th>");
-							echo("<th> COR </th>");
+							echo("<th class=".$class.">  </th>");
 							echo("<th>".$chamado[$i]['nome']."</th>");
 							echo("<th>".$chamado[$i]['natureza']."</th>");
-							echo("<th>".$chamado[$i]['data']."</th>");
+							echo("<th>".date("d/m/Y",strtotime(substr($chamado[$i]['data'],0,10)))."</th>");
 							echo("<th>".$chamado[$i]['status']."</th>");
 							echo("</tr>");
 						}
@@ -196,11 +207,13 @@ window.onload = function () {
 				          	</tr>
 				          	<tr class="assunto">
 				          		<td class="title-head">Assunto:</td>
-				          		<td colspan="3"><div class="scroll">
+				          		<td colspan="3">
+				          			<div class="scroll" id="mensagem">
 				          		Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue n
 
+				          			</div>
 				          		</td>
-				          		</div>
+				          		
 				          	</tr>
 				          </table>
 						</div>

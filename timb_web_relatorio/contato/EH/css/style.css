@@ -168,6 +168,16 @@ body {
   .content-eh ::-webkit-scrollbar-thumb:horizontal:hover {
     background-color: #717171; }
 
+/*----------------STATUS - CORES DA TABELA RELACIONADA AO GRAFICO---------------------*/
+.azul {
+  background-color: #4286A8; }
+
+.verde {
+  background-color: #52CC52; }
+
+.cinza {
+  background-color: #5C5C5C; }
+
 /* ---------->>> ESTILO MODAL- EH <<<-----------*/
 .button {
   cursor: pointer; }
@@ -227,3 +237,5 @@ body {
       #overlay .dialog .x-dialog:hover {
         background-color: #555;
         cursor: pointer; }
+
+/*# sourceMappingURL=style.css.map */

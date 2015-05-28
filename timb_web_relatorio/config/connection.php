@@ -1,5 +1,5 @@
 <?php 
-header("Content-Type: text/html; charset=ISO-8859-1",true); //DECODIFICA OS CARACTERES ESPECIAIS VINDOS DO BANCO
+header("Content-Type: text/html; charset=utf8",true); //DECODIFICA OS CARACTERES ESPECIAIS VINDOS DO BANCO
 class connect_mysql{
    
   //RESULTADO DO GRAFICO DE LINHAS - PRO MES
@@ -9,16 +9,17 @@ class connect_mysql{
   public $parametro;
 
   //METODO CONSTRUTOR -- 
-  //NAO INVOCO NADA NESTA FUNÇÃO POIS AINDA NÃO RECEBI A VARIAVEL PARAMENTRO DO ARQUIVO QUE POSSUI O GRAFICO
+  //NAO INVOCO NADA NESTA FUN??O POIS AINDA N?O RECEBI A VARIAVEL PARAMENTRO DO ARQUIVO QUE POSSUI O GRAFICO
   function connect_mysql(){
 
   }
   
-  //ESTA FUNÇÃO AO SER CHAMADA PELOS ARQUIVOS DE GRAFICO - JÁ DECLARAM A VARIAVEL paramentro PARA CADA TIPO DE GRAFICO
+  //ESTA FUN??O AO SER CHAMADA PELOS ARQUIVOS DE GRAFICO - J? DECLARAM A VARIAVEL paramentro PARA CADA TIPO DE GRAFICO
   //ADMINISTRA A CONEXAO E INVOCA A FUNCAO PARA EXECUCAO DAS QUERYS
   function connection(){
     $conection = $this->prepara_conection();
     $this->execute_mysql($conection);
+    
   }
 
   //FUNCAO RESPONSAVEL PELA EXECUCAO DAS QUERYS E PROCEDURES
@@ -35,10 +36,11 @@ class connect_mysql{
     $usuario = 'truckinfom';
     $senha = 'chap1982';
     $mysqli = mysqli_connect($servidor, $usuario, $senha, $banco);
+    mysqli_set_charset($mysqli,'utf8');
     return $mysqli;
   }
 
-    //PARA REALIZAR A CONEXÃO RECEBE COMO PARAMETRO A CONEXÃO
+    //PARA REALIZAR A CONEX?O RECEBE COMO PARAMETRO A CONEX?O
   public function connection_procedure($mysqli){
 
     // PARAMETROS PARA CHAMAR A FUNCAO QUE EXECUTA PROCEDURE
@@ -64,8 +66,8 @@ class connect_mysql{
    * Invoca a procedure a ser utilizada
    * @param  [type] $proc_string String com o nome da SP
    * @param  [type] $params      String com o valor dos parametros da SP separados por ","
-   * @param  [type] $mysqli      Conexão do banco      
-   * @param  [boolean] $flag     Para trazer o resultado em MYSQL_ASSOC ou não
+   * @param  [type] $mysqli      Conex?o do banco      
+   * @param  [boolean] $flag     Para trazer o resultado em MYSQL_ASSOC ou n?o
    * @return [type]              Retorna a resposta da SP do banco
    */
   public function call_procedure($proc_string, $params, $params_2, $mysqli,$flag=false){

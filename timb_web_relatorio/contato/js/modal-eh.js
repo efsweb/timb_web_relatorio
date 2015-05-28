@@ -9,10 +9,19 @@ $(document).ready(function() {
   // Open appropriate dialog when clicking on anything with class "dialog-open"
   $('.dialog-open').click(function() {
     var x = this.id;
+    console.log('data '+ x);
     $.post('modal.php',{id:x}).done(function(data){
       //$('#data').html(data);
       console.log(data);
-      var result = JSON.parse(data);
+      var arr = data.split('##');
+
+      $('#natureza').html(arr[0]);
+      $('#nome').html(arr[1]);
+      $('#telefone').html(arr[2]);
+      $('#email').html(arr[3]);
+      $('#mensagem').html(arr[4]);
+      $('#data').html(arr[5]);
+      $('#status').html(arr[6]);
 
       modal.id = '#dialog-';
       $('#overlay').fadeIn();

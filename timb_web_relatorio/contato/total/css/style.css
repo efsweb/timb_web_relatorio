@@ -143,6 +143,16 @@ body {
   .table-eh tbody tr:hover {
     background: #3a3a3a; }
 
+/*----------------STATUS - CORES DA TABELA RELACIONADA AO GRAFICO---------------------*/
+.azul {
+  background-color: #4286A8; }
+
+.verde {
+  background-color: #52CC52; }
+
+.cinza {
+  background-color: #5C5C5C; }
+
 /* ---------->>> TABLE MODAL - EH <<<-----------*/
 .content-eh {
   font-family: arial;
@@ -245,5 +255,3 @@ body {
       #overlay .dialog .x-dialog:hover {
         background-color: #555;
         cursor: pointer; }
-
-/*# sourceMappingURL=style.css.map */
