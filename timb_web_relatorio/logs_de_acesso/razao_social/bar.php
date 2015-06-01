@@ -2,18 +2,18 @@
 <html>
 <head>  
 <meta charset='utf-8'>
-  <?php 
-    require_once '../../config/connection.php';
+  <!--<?php 
+    //require_once '../../config/connection.php';
 
-    $connect_mysql = new connect_mysql();
-    $connect_mysql->parametro = "'razao_social'";
-    $connect_mysql->parametro_2 = "''";
-    $connect_mysql->connection();
+   // $connect_mysql = new connect_mysql();
+    //$connect_mysql->parametro = "'razao_social'";
+    //$connect_mysql->parametro_2 = "''";
+    //$connect_mysql->connection();
 
-    $contador = count($connect_mysql->result_proc); //contador de elementos do array
+    //$contador = count($connect_mysql->result_proc); //contador de elementos do array
     
 
-  ?>
+  ?>-->
 
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <link rel="stylesheet" type="text/css" href="css/style.scss">
@@ -49,7 +49,7 @@
         type: "bar",
         color: "#00AEF0",
         dataPoints: [
-        <?php 
+        /*<?php 
         //REALIZA A LEITURA DOS DADOS DO BANCO
           for ($i = $contador-1; $i >= 0; $i--) {
             //VERIFICA SE A RAZAO SOCIAL POSSUI MUITOS CARACTERES (SE FOR MAIOR QUE 45 ELE DELIMITA A STRING)
@@ -63,7 +63,7 @@
             label: "'.$razao_social.'", indexLabel: "'.$connect_mysql->result_proc[$i]['qtde'].'" },' ;
           }
 
-        ?>
+        ?>*/
         ]
       }
       ]
@@ -76,7 +76,8 @@ chart.render();
 
 <body>
 <div class="graficos">
-      <div id="chartContainer" style="height: 1200px; width: 760px; margin: 0 auto;">
+<p>Aguarde, em manutenção</p>
+     <!--<div id="chartContainer" style="height: 1200px; width: 760px; margin: 0 auto;">-->
 </div>
 </body>
 
