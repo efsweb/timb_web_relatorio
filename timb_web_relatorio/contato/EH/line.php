@@ -285,7 +285,7 @@
 				        	<?php echo '"'.$conteudo_array[10].'"'; ?>,
 				        	<?php echo '"'.$conteudo_array[11].'"'; ?>,
 				        ],
-		            label : 'Produto'
+		            label : 'Conteúdo'
 		        },
 		        {
 		            fillColor : "transparent",
