@@ -73,24 +73,23 @@
 			$conteudo_array = array(); // PRODUTO
 			$aplicativo_array = array();
 			$sugestao_array = array();
-
-
-			for ($i= 0; $i <= $mes_atual-1; $i++) { //PERCORRER OS 12 MESES
-					array_unshift($conteudo_array,$vl_mes[$i]['qtde_conteudo']);
-					array_unshift($aplicativo_array,$vl_mes[$i]['qtde_aplicativo']);
-					array_unshift($sugestao_array,$vl_mes[$i]['qtde_sugestao']);		
-			}
 			
 
 			for ($j = $mes_atual; $j < 12; $j++ ){
 					$vl_mes[$j]['qtde_conteudo'] = !empty($vl_mes[$j]['qtde_conteudo'])?$vl_mes[$j]['qtde_conteudo']:'0';
 					$vl_mes[$j]['qtde_aplicativo'] = !empty($vl_mes[$j]['qtde_aplicativo'])?$vl_mes[$j]['qtde_aplicativo']:'0';
 					$vl_mes[$j]['qtde_sugestao'] = !empty($vl_mes[$j]['qtde_sugestao'])?$vl_mes[$j]['qtde_sugestao']:'0';
-					array_unshift($conteudo_array,$vl_mes[$j]['qtde_conteudo']);
-					array_unshift($aplicativo_array,$vl_mes[$j]['qtde_aplicativo']);
-					array_unshift($sugestao_array,$vl_mes[$j]['qtde_sugestao']);
+					array_push($conteudo_array,$vl_mes[$j]['qtde_conteudo']);
+					array_push($aplicativo_array,$vl_mes[$j]['qtde_aplicativo']);
+					array_push($sugestao_array,$vl_mes[$j]['qtde_sugestao']);
 
 			}
+			
+			for ($i= 0; $i <= $mes_atual-1; $i++) { //PERCORRER OS 12 MESES
+					array_push($conteudo_array,$vl_mes[$i]['qtde_conteudo']);
+					array_push($aplicativo_array,$vl_mes[$i]['qtde_aplicativo']);
+					array_push($sugestao_array,$vl_mes[$i]['qtde_sugestao']);		
+			}			
 
 		?>
 	</head>
