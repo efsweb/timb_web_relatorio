@@ -16,14 +16,14 @@ class connect_mysql{
   
   //ESTA FUN??O AO SER CHAMADA PELOS ARQUIVOS DE GRAFICO - J? DECLARAM A VARIAVEL paramentro PARA CADA TIPO DE GRAFICO
   //ADMINISTRA A CONEXAO E INVOCA A FUNCAO PARA EXECUCAO DAS QUERYS
-  function connection(){
+  public function connection(){
     $conection = $this->prepara_conection();
     $this->execute_mysql($conection);
     
   }
 
   //FUNCAO RESPONSAVEL PELA EXECUCAO DAS QUERYS E PROCEDURES
-  function execute_mysql($conection){
+  public function execute_mysql($conection){
 
     $this->connection_procedure($conection);
   }
@@ -73,9 +73,16 @@ class connect_mysql{
   public function call_procedure($proc_string, $params, $params_2, $mysqli,$flag=false){
         $stmt = mysqli_query($mysqli,("CALL $proc_string($params,$params_2);")) or die($mysqli->error. " <- ERROR" );
         if(!$flag){
-          $result= mysqli_fetch_all($stmt); //RESULTADOS DA QUERY DA PROCEDURE  
+          //$result= mysqli_fetch_all($stmt); //RESULTADOS DA QUERY DA PROCEDURE  
+          while($data = $stmt->fetch_array()){
+            $result[] = $data;
+          }          
         }else{
-          $result= mysqli_fetch_all($stmt,MYSQL_ASSOC); //RESULTADOS DE FORMA ASSOCIATIVA - QUERY DA PROCEDURE 
+          while($data = $stmt->fetch_assoc()){
+            $result[] = $data;
+          }
+          //mysqli_fetch_all($stmt,MYSQL_ASSOC); //RESULTADOS DE FORMA ASSOCIATIVA - QUERY DA PROCEDURE 
+
         }
         
       return $result;

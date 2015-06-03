@@ -33,8 +33,8 @@
         type: "bar",
         color: "#00AEF0",
         dataPoints: [
-        { y: <?php echo $connect_mysql->result_proc[1]['qtde']; ?>, label: <?php echo '"'.$connect_mysql->result_proc[1]['dispositivo'].'"'; ?>, indexLabel: <?php echo '"'.$connect_mysql->result_proc[0]['qtde'].'"'; ?> },
-        { y: <?php echo $connect_mysql->result_proc[0]['qtde']; ?>, label: <?php echo '"'.$connect_mysql->result_proc[0]['dispositivo'].'"'; ?> , indexLabel: <?php echo '"'.$connect_mysql->result_proc[1]['qtde'].'"'; ?> }      
+        { y: <?php echo $connect_mysql->result_proc[1]['qtde']; ?>, label: <?php echo '"'.$connect_mysql->result_proc[1]['dispositivo'].'"'; ?>, indexLabel: <?php echo '"'.$connect_mysql->result_proc[1]['qtde'].'"'; ?> },
+        { y: <?php echo $connect_mysql->result_proc[0]['qtde']; ?>, label: <?php echo '"'.$connect_mysql->result_proc[0]['dispositivo'].'"'; ?> , indexLabel: <?php echo '"'.$connect_mysql->result_proc[0]['qtde'].'"'; ?> }      
         ]
       }
       ]
